@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #170b0b;
+  --foreground: #ffffff;
+  --primary: #c73838;
+  --primary-dark: #8f2b2b;
+  --accent: #d45b5b;
+  --border: #3d1a1a;
+  --muted: #a38d8d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #170b0b;
+    --foreground: #ffffff;
+    --primary: #c73838;
+    --primary-dark: #8f2b2b;
+    --accent: #d45b5b;
+    --border: #3d1a1a;
+    --muted: #a38d8d;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  scroll-behavior: smooth;
+  background-image: radial-gradient(circle at 50% 50%, #2a1111 0%, #170b0b 60%);
+  background-attachment: fixed;
+}
+
+/* Sleek UI Buttons & Cards */
+.glass-panel {
+  background: rgba(23, 11, 11, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(199, 56, 56, 0.1);
+}
+
+.sleek-card {
+  background: linear-gradient(145deg, rgba(35, 15, 15, 0.6), rgba(23, 11, 11, 0.9));
+  border: 1px solid rgba(199, 56, 56, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(199, 56, 56, 0.4);
+  box-shadow: 0 10px 40px rgba(199, 56, 56, 0.1);
+}
+
+.btn-glow {
+  background: linear-gradient(135deg, #8f2b2b, #c73838);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(199, 56, 56, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  border-radius: 999px;
+  color: #fff;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 6px 20px rgba(199, 56, 56, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  border-radius: 999px;
+  color: #fff;
+}
+
+.btn-outline:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
