@@ -19,7 +19,7 @@ const projects = [
     title: "edge-tb-triage",
     desc: "Chest X-ray triage on-device, no cloud round-trip. MobileNetV2 + TFLite transfer learning, built to mirror the rural/offline deployment constraints real diagnostic tools face in the field.",
     tags: ["TFLite", "computer vision", "on-device ML"],
-    github: null,
+    github: "https://github.com/Aayush-pixel29/edge-tb-triage",
     live: null
   },
   {
@@ -27,6 +27,48 @@ const projects = [
     desc: "Offline multimodal emotion AI for astronaut mental-health support (ISRO Smart India Hackathon). MobileNetV2 for facial analysis, GRU for voice emotion, optimized to run fully offline via TFLite/ONNX.",
     tags: ["multimodal", "offline-first", "SIH"],
     github: "https://github.com/Aayush-pixel29/MAITRI",
+    live: null
+  },
+  {
+    title: "Recon AI",
+    desc: "Offline-first disaster coordination platform leveraging Next.js and Leaflet.js to map and coordinate emergency response efforts without relying on stable internet.",
+    tags: ["Next.js", "Leaflet.js", "offline-first"],
+    github: "https://github.com/Aayush-pixel29/Recon-AI-Prototype",
+    live: null
+  },
+  {
+    title: "Aura",
+    desc: "Cross-platform AI wellness companion built with Flutter and Dart. Uses Gemini Pro API for conversational support and Firebase for local caching.",
+    tags: ["Flutter", "Gemini Pro", "Firebase"],
+    github: "https://github.com/Aayush-pixel29/aura-app",
+    live: null
+  },
+  {
+    title: "AI Traffic Flow Detector",
+    desc: "YOLOv8-based real-time congestion and anomaly detection system for smart city traffic management.",
+    tags: ["YOLOv8", "computer vision", "real-time"],
+    github: "https://github.com/Aayush-pixel29/AI-Traffic-Flow-Analyzer",
+    live: null
+  },
+  {
+    title: "Cable Fault Detection & Monitoring",
+    desc: "An embedded and IoT system for underground cable faults, proving hardware integration capabilities.",
+    tags: ["IoT", "Embedded C", "Sensors"],
+    github: "https://drive.google.com/drive/folders/1brQHI2ju_9VCsWMrJ1aiuH4VE-EFXqwR",
+    live: null
+  },
+  {
+    title: "Real-Time Sign Language & Emotion Detector",
+    desc: "Real-time system that detects sign language gestures and facial emotions from live video. Combines computer vision and deep learning to interpret hand signs and facial expressions.",
+    tags: ["computer vision", "deep learning", "HCI"],
+    github: "https://github.com/Aayush-pixel29/Real-Time-AI-Sign-Language-Emotion-Detector",
+    live: null
+  },
+  {
+    title: "Financial Sentiment Analysis",
+    desc: "NLP pipeline that turns financial news into quantified market sentiment. Processes articles, cleans text and applies sentiment models to extract positive/negative market signals.",
+    tags: ["NLP", "sentiment analysis", "FinTech"],
+    github: "https://github.com/Aayush-pixel29/financial-sentiment-analysis",
     live: null
   }
 ];
