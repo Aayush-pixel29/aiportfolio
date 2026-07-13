@@ -11,14 +11,25 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary: "var(--primary)",
-        "primary-dark": "var(--primary-dark)",
-        accent: "var(--accent)",
-        border: "var(--border)",
-        muted: "var(--muted)",
+        'journey-green': '#4a5d23',
+        'journey-green-dark': '#3a4a1a',
+        'journey-beige': '#f9f8f4',
+        'journey-gray': '#e5e3db',
+        'journey-text': '#222222',
+        'journey-blue': '#4285F4',
       },
       fontFamily: {
-        sans: ['var(--font-outfit)', 'sans-serif'],
+        sans: ['var(--font-inter)', 'sans-serif'],
+        handwriting: ['var(--font-handwriting)', 'cursive'],
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        }
+      },
+      animation: {
+        marquee: 'marquee 10s linear infinite',
       },
     },
   },

@@ -65,40 +65,39 @@ export default function OtherProjects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="group sleek-card card-hover flex flex-col h-full"
+              className="phantom-card bg-[#0A0A0E] flex flex-col h-full neo-hover"
             >
-              <div className="relative h-48 w-full overflow-hidden border-b border-white/5 rounded-t-xl">
+              <div className="relative h-40 w-full overflow-hidden border-b-[3px] border-neo-black bg-white">
                 {project.image ? (
                   <>
                     <Image 
                       src={project.image} 
                       alt={project.title} 
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover transition-transform duration-700 hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#170b0b] to-transparent opacity-60" />
                   </>
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-muted bg-black/20">
-                    No Image
+                  <div className="w-full h-full flex items-center justify-center font-bold text-white/40 text-xl font-mono">
+                    NO_IMAGE
                   </div>
                 )}
               </div>
               
-              <div className="p-6 flex flex-col flex-1 relative z-10">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="font-bold text-xl text-white group-hover:text-primary transition-colors pr-4">{project.title}</h3>
+              <div className="p-5 flex flex-col flex-1 relative z-10">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-bold font-mono text-lg text-white pr-4">{project.title}</h3>
                   {project.link !== "#" && (
-                    <a href={project.link} target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors">
-                      <ExternalLink size={20} />
+                    <a href={project.link} target="_blank" rel="noreferrer" className="text-white hover:scale-110 transition-transform">
+                      <ExternalLink size={20} strokeWidth={2.5} />
                     </a>
                   )}
                 </div>
-                <p className="text-muted text-sm flex-1 mb-6 leading-relaxed">{project.description}</p>
+                <p className="text-white/80 text-xs flex-1 mb-4 font-medium leading-relaxed">{project.description}</p>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {project.tags.map(tag => (
-                    <span key={tag} className="px-2.5 py-1 text-xs font-medium bg-white/5 text-muted border border-white/10 rounded-md">
+                    <span key={tag} className="px-2 py-0.5 text-[10px] font-bold bg-white text-white border border-white/10 shadow-sm">
                       #{tag}
                     </span>
                   ))}

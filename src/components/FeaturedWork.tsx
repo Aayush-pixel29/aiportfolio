@@ -56,35 +56,34 @@ export default function FeaturedWork() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group sleek-card card-hover flex flex-col h-full overflow-hidden"
+              className="phantom-card flex flex-col h-full overflow-hidden neo-hover bg-white"
             >
-              <div className="relative h-56 w-full overflow-hidden border-b border-white/5">
+              <div className="relative h-56 w-full overflow-hidden border-b-[3px] border-neo-black">
                 <Image 
                   src={project.image} 
                   alt={project.title} 
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#170b0b] to-transparent opacity-60" />
               </div>
-              <div className="p-8 flex flex-col flex-1 relative z-10">
-                <div className="mb-6 flex flex-wrap gap-2">
+              <div className="p-6 flex flex-col flex-1 relative z-10">
+                <div className="mb-4 flex flex-wrap gap-2">
                   {project.tags.map(tag => (
-                    <span key={tag} className="px-3 py-1 text-xs font-semibold bg-primary/10 text-primary border border-primary/20 rounded-full">
+                    <span key={tag} className="px-2 py-1 text-xs font-bold bg-[#0A0A0E] border border-white/10 shadow-sm">
                       {tag}
                     </span>
                   ))}
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-primary transition-colors">{project.title}</h3>
-                <p className="text-sm font-medium text-primary-dark mb-4 uppercase tracking-wider">{project.subtitle}</p>
+                <h3 className="text-2xl font-bold font-mono mb-1 text-white">{project.title}</h3>
+                <p className="text-sm font-bold text-white/60 mb-4 uppercase tracking-wider">{project.subtitle}</p>
                 
-                <p className="text-muted text-sm mb-8 flex-1 leading-relaxed">
+                <p className="text-white text-sm mb-6 flex-1 font-medium leading-relaxed">
                   {project.description}
                 </p>
 
-                <div className="pt-6 border-t border-white/5 flex items-center gap-4">
-                  <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 btn-outline px-5 py-2 text-sm font-semibold">
+                <div className="pt-4 border-t-[3px] border-neo-black flex items-center gap-4">
+                  <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 phantom-btn-primary px-4 py-2 text-sm">
                     <Code size={16} /> GitHub
                   </a>
                 </div>

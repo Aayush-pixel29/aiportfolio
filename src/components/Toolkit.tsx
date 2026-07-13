@@ -46,15 +46,15 @@ export default function Toolkit() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="sleek-card p-6 card-hover"
+              className="phantom-card p-5 neo-hover"
             >
-              <div className="text-primary bg-primary/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-primary/20">
+              <div className="text-white bg-neo-green w-14 h-14 border border-white/10 shadow-sm flex items-center justify-center mb-4">
                 {category.icon}
               </div>
-              <h3 className="font-bold text-xl mb-4 text-white">{category.title}</h3>
-              <div className="flex flex-wrap gap-2">
+              <h3 className="font-bold text-lg font-mono mb-3 text-white">{category.title}</h3>
+              <div className="flex flex-wrap gap-1.5">
                 {category.skills.map(skill => (
-                  <span key={skill} className="px-3 py-1.5 text-xs font-medium bg-white/5 text-muted border border-white/10 rounded-lg">
+                  <span key={skill} className="px-2 py-0.5 text-xs font-bold bg-white text-white border border-white/10">
                     {skill}
                   </span>
                 ))}

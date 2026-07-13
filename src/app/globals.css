@@ -2,84 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #170b0b;
-  --foreground: #ffffff;
-  --primary: #c73838;
-  --primary-dark: #8f2b2b;
-  --accent: #d45b5b;
-  --border: #3d1a1a;
-  --muted: #a38d8d;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #170b0b;
-    --foreground: #ffffff;
-    --primary: #c73838;
-    --primary-dark: #8f2b2b;
-    --accent: #d45b5b;
-    --border: #3d1a1a;
-    --muted: #a38d8d;
+    --background: #0A0A0E;
+    --foreground: #F2F2F2;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
   }
 }
 
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  scroll-behavior: smooth;
-  background-image: radial-gradient(circle at 50% 50%, #2a1111 0%, #170b0b 60%);
-  background-attachment: fixed;
+@layer components {
+  .phantom-btn-primary {
+    @apply bg-[#AB9FF2] text-[#0A0A0E] px-6 py-3 rounded-2xl font-bold hover:bg-[#C4BBF5] transition-all shadow-[0_0_20px_rgba(171,159,242,0.3)] hover:shadow-[0_0_30px_rgba(171,159,242,0.5)] active:scale-95;
+  }
+  
+  .phantom-btn-outline {
+    @apply bg-white/5 text-white px-6 py-3 rounded-2xl font-semibold border border-white/10 hover:bg-white/10 transition-all active:scale-95;
+  }
+
+  .phantom-card {
+    @apply bg-white/[0.03] rounded-3xl border border-white/10 p-6 md:p-8 backdrop-blur-xl hover:bg-white/[0.05] transition-all duration-300;
+  }
+
+  .phantom-glow-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB9FF2] to-[#7F56D9];
+  }
 }
 
-/* Sleek UI Buttons & Cards */
-.glass-panel {
-  background: rgba(23, 11, 11, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(199, 56, 56, 0.1);
-}
-
-.sleek-card {
-  background: linear-gradient(145deg, rgba(35, 15, 15, 0.6), rgba(23, 11, 11, 0.9));
-  border: 1px solid rgba(199, 56, 56, 0.15);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-4px);
-  border-color: rgba(199, 56, 56, 0.4);
-  box-shadow: 0 10px 40px rgba(199, 56, 56, 0.1);
-}
-
-.btn-glow {
-  background: linear-gradient(135deg, #8f2b2b, #c73838);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 15px rgba(199, 56, 56, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  border-radius: 999px;
-  color: #fff;
-}
-
-.btn-glow:hover {
-  box-shadow: 0 6px 20px rgba(199, 56, 56, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-}
-
-.btn-outline {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  transition: all 0.3s ease;
-  border-radius: 999px;
-  color: #fff;
-}
-
-.btn-outline:hover {
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.05);
-  transform: translateY(-2px);
+/* Subtle grid background for the tech feel */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
