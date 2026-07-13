@@ -33,7 +33,7 @@ export default function Hero() {
           Architecting <span className="phantom-glow-text">Intelligence.</span>
         </h1>
         <p className="text-lg md:text-xl font-medium text-white/60 mb-10 max-w-2xl leading-relaxed">
-          I'm Aayush Shelar, an AI Engineer specializing in RAG, multi-agent orchestration, and edge AI deployed where connectivity fails. 
+          I&apos;m Aayush Shelar, an AI Engineer specializing in RAG, multi-agent orchestration, and edge AI deployed where connectivity fails. 
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">

@@ -20,13 +20,13 @@ export async function POST(request: Request) {
       if (fileData) {
         try {
           emails = JSON.parse(fileData);
-        } catch (e) {
+        } catch (_) {
           emails = [];
         }
       }
     }
 
-    if (!emails.some((e: any) => e.email === email)) {
+    if (!emails.some((e: { email: string }) => e.email === email)) {
       emails.push({ email, timestamp: new Date().toISOString() });
       fs.writeFileSync(filePath, JSON.stringify(emails, null, 2));
     }
