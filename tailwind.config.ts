@@ -9,30 +9,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        'journey-green': '#4a5d23',
-        'journey-green-dark': '#3a4a1a',
-        'journey-beige': '#f9f8f4',
-        'journey-gray': '#e5e3db',
-        'journey-text': '#222222',
-        'journey-blue': '#4285F4',
-      },
-      fontFamily: {
-        sans: ['var(--font-inter)', 'sans-serif'],
-        handwriting: ['var(--font-handwriting)', 'cursive'],
-      },
-      keyframes: {
-        marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
+        background: "var(--bg)",
+        surface: "var(--surface)",
+        border: "var(--border)",
+        text: {
+          DEFAULT: "var(--text)",
+          dim: "var(--text-dim)",
+        },
+        signal: {
+          amber: "var(--signal-amber)",
+          cyan: "var(--signal-cyan)",
         }
       },
-      animation: {
-        marquee: 'marquee 10s linear infinite',
+      fontFamily: {
+        sans: ["var(--font-inter)", "sans-serif"],
+        display: ["var(--font-space-grotesk)", "sans-serif"],
+        mono: ["var(--font-ibm-plex-mono)", "monospace"],
       },
     },
   },
   plugins: [],
 };
+
 export default config;

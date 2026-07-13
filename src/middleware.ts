@@ -4,26 +4,24 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   
-  // Exclude static files, images, api routes, and the login page itself
+  // Exclude static files, images, api routes, etc.
   if (
     pathname.startsWith('/_next') || 
     pathname.startsWith('/api') || 
     pathname.startsWith('/images') ||
-    pathname === '/login' ||
-    pathname.includes('.') // matches favicon.ico, etc.
+    pathname.includes('.')
   ) {
     return NextResponse.next();
   }
 
-  // Only check for NextAuth Google cookie to force OAuth testing
   const nextAuthSession = request.cookies.get('next-auth.session-token') || request.cookies.get('__Secure-next-auth.session-token');
 
-  // If no auth cookie, redirect to login
-  if (!nextAuthSession) {
-    const loginUrl = new URL('/login', request.url);
-    return NextResponse.redirect(loginUrl);
+  // Ensure /login redirects to home if already logged in
+  if (nextAuthSession && pathname === '/login') {
+    return NextResponse.redirect(new URL('/', request.url));
   }
 
+  // Allow all other routes to pass through un-gated
   return NextResponse.next();
 }
 

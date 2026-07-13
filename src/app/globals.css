@@ -4,37 +4,42 @@
 
 @layer base {
   :root {
-    --background: #0A0A0E;
-    --foreground: #F2F2F2;
+    --bg: #0B0D10;
+    --surface: #13161B;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #E8E9EC;
+    --text-dim: #8A8F98;
+    --signal-amber: #FF6B3D;
+    --signal-cyan: #4FD1FF;
   }
+  
   body {
-    background-color: var(--background);
-    color: var(--foreground);
+    background-color: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer components {
-  .phantom-btn-primary {
-    @apply bg-[#AB9FF2] text-[#0A0A0E] px-6 py-3 rounded-2xl font-bold hover:bg-[#C4BBF5] transition-all shadow-[0_0_20px_rgba(171,159,242,0.3)] hover:shadow-[0_0_30px_rgba(171,159,242,0.5)] active:scale-95;
+  .signal-card {
+    @apply bg-surface border border-border rounded-xl p-6 md:p-8 transition-colors duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-signal-amber text-white px-6 py-3 rounded-xl font-medium hover:bg-opacity-90 transition-all active:scale-95 text-sm uppercase tracking-wider;
   }
   
-  .phantom-btn-outline {
-    @apply bg-white/5 text-white px-6 py-3 rounded-2xl font-semibold border border-white/10 hover:bg-white/10 transition-all active:scale-95;
+  .btn-outline {
+    @apply bg-transparent text-text px-6 py-3 rounded-xl font-medium border border-border hover:border-signal-cyan hover:text-signal-cyan transition-all active:scale-95 text-sm uppercase tracking-wider;
   }
 
-  .phantom-card {
-    @apply bg-white/[0.03] rounded-3xl border border-white/10 p-6 md:p-8 backdrop-blur-xl hover:bg-white/[0.05] transition-all duration-300;
-  }
-
-  .phantom-glow-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB9FF2] to-[#7F56D9];
+  .tech-tag {
+    @apply bg-white/5 border border-white/10 rounded px-2 py-1 text-xs font-mono text-text-dim;
   }
 }
 
-/* Subtle grid background for the tech feel */
-.bg-grid-pattern {
-  background-image: 
-    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
+/* Base link styles */
+a {
+  @apply transition-colors duration-200;
 }

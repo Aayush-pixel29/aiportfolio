@@ -1,76 +1,35 @@
+import MeshVisual from "@/components/MeshVisual";
+import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Experience from "@/components/Experience";
-import FeaturedWork from "@/components/FeaturedWork";
-import OtherProjects from "@/components/OtherProjects";
+import About from "@/components/About";
+import Work from "@/components/Work";
 import Toolkit from "@/components/Toolkit";
-import Achievements from "@/components/Achievements";
+import Experience from "@/components/Experience";
+import Connect from "@/components/Connect";
+import Reveal from "@/components/Reveal";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center w-full max-w-6xl mx-auto pb-32 px-4 relative z-10">
+    <div className="flex w-full relative">
+      <MeshVisual />
+      <Nav />
       
-      {/* Hero Section */}
-      <section id="home" className="w-full pt-12 mb-32">
-        <Hero />
-      </section>
-
-      <div className="w-full flex flex-col gap-32">
+      {/* Main Content Area - padded on left for Nav on desktop */}
+      <div className="flex-1 xl:ml-24 px-6 md:px-16 lg:px-32 relative">
+        <Reveal><Hero /></Reveal>
+        <Reveal><About /></Reveal>
+        <Reveal><Work /></Reveal>
+        <Reveal><Toolkit /></Reveal>
+        <Reveal><Experience /></Reveal>
+        <Reveal><Connect /></Reveal>
         
-        {/* Experience Section */}
-        <section id="experience" className="w-full flex flex-col gap-8">
-          <div className="flex items-center gap-4">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white font-mono">
-              <span className="text-[#AB9FF2]">01.</span> Experience
-            </h2>
-            <div className="flex-1 h-[1px] bg-gradient-to-r from-white/10 to-transparent"></div>
-          </div>
-          <div className="w-full pl-0 md:pl-12">
-            <Experience />
-          </div>
-        </section>
-
-        {/* Projects Section */}
-        <section id="work" className="w-full flex flex-col gap-8">
-          <div className="flex items-center gap-4">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white font-mono">
-              <span className="text-[#AB9FF2]">02.</span> Featured Work
-            </h2>
-            <div className="flex-1 h-[1px] bg-gradient-to-r from-white/10 to-transparent"></div>
-          </div>
-          <div className="w-full pl-0 md:pl-12">
-            <FeaturedWork />
-            <div className="mt-8">
-              <OtherProjects />
-            </div>
-          </div>
-        </section>
-
-        {/* Toolkit Section */}
-        <section id="toolkit" className="w-full flex flex-col gap-8">
-          <div className="flex items-center gap-4">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white font-mono">
-              <span className="text-[#AB9FF2]">03.</span> Toolkit
-            </h2>
-            <div className="flex-1 h-[1px] bg-gradient-to-r from-white/10 to-transparent"></div>
-          </div>
-          <div className="w-full pl-0 md:pl-12">
-            <Toolkit />
-          </div>
-        </section>
-
-        {/* Achievements Section */}
-        <section id="achievements" className="w-full flex flex-col gap-8">
-          <div className="flex items-center gap-4">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white font-mono">
-              <span className="text-[#AB9FF2]">04.</span> Achievements
-            </h2>
-            <div className="flex-1 h-[1px] bg-gradient-to-r from-white/10 to-transparent"></div>
-          </div>
-          <div className="w-full pl-0 md:pl-12">
-            <Achievements />
-          </div>
-        </section>
-
+        {/* Footer */}
+        <footer className="w-full py-8 border-t border-border flex justify-between items-center z-10 relative">
+          <p className="text-xs font-mono text-text-dim">© {new Date().getFullYear()} Aayush Shelar.</p>
+          <a href="#top" className="text-xs font-mono text-signal-cyan hover:text-white transition-colors uppercase">
+            {"//"} Back to Top
+          </a>
+        </footer>
       </div>
     </div>
   );
