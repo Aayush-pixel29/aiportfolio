@@ -15,12 +15,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Check if they have the local auth cookie or the NextAuth Google cookie
-  const authEmail = request.cookies.get('portfolio_lead_email');
+  // Only check for NextAuth Google cookie to force OAuth testing
   const nextAuthSession = request.cookies.get('next-auth.session-token') || request.cookies.get('__Secure-next-auth.session-token');
 
   // If no auth cookie, redirect to login
-  if (!authEmail && !nextAuthSession) {
+  if (!nextAuthSession) {
     const loginUrl = new URL('/login', request.url);
     return NextResponse.redirect(loginUrl);
   }
