@@ -20,7 +20,7 @@ export async function POST(request: Request) {
       if (fileData) {
         try {
           emails = JSON.parse(fileData);
-        } catch (_) {
+        } catch {
           emails = [];
         }
       }
