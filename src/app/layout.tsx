@@ -9,13 +9,12 @@ const inter = Inter({
 });
 
 const spaceGrotesk = Space_Grotesk({ 
-  weight: ["400", "500", "600", "700"], 
   subsets: ["latin"], 
   variable: "--font-space-grotesk" 
 });
 
 const dmMono = DM_Mono({ 
-  weight: ["400", "500"], 
+  weight: "400", 
   subsets: ["latin"], 
   variable: "--font-dm-mono" 
 });
