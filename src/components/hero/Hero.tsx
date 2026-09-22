@@ -56,7 +56,7 @@ export const Hero = () => {
           {/* Avatar image */}
           <div className="absolute bottom-[-2px] left-1/2 -translate-x-1/2 w-[85%] h-[85%] z-[2]">
             <Image
-              src="/images/avatar-main.png"
+              src="/images/avatar-main.webp"
               alt="Aayush Shelar"
               fill
               priority
@@ -84,7 +84,7 @@ export const Hero = () => {
 
         {/* Small work card */}
         <div className="absolute right-[-15px] bottom-[24px] w-[150px] h-[118px] border border-ink rounded-[17px] bg-paper shadow-[5px_5px_0_var(--ink)] z-10 overflow-hidden rotate-[4deg]">
-          <Image src="/images/avatar-working.png" alt="Working" width={150} height={82} className="w-full h-[82px] object-cover object-center" />
+          <Image src="/images/avatar-working.webp" alt="Working" width={150} height={82} className="w-full h-[82px] object-cover object-center" />
           <div className="font-mono text-[8px] p-2 bg-paper">STATUS: BUILDING ↗</div>
         </div>
       </div>

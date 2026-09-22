@@ -60,37 +60,50 @@ export default function CaseStudyPage({ params }: CaseStudyProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-20">
           <div className="md:col-span-8 space-y-16">
-            <section>
-              <h2 className="font-display text-3xl font-bold text-ink mb-6">Problem</h2>
-              <p className="text-lg text-ink/70 font-medium leading-relaxed bg-paper p-6 rounded-[15px] border border-ink shadow-[4px_4px_0_var(--ink)]">
-                {/* TODO: Add actual problem statement data in projects.ts */}
-                [TODO: Document the specific problem or inefficiency that this project addresses. Why was it necessary? What was the context?]
-              </p>
-            </section>
+            {project.problem && (
+              <section>
+                <h2 className="font-display text-3xl font-bold text-ink mb-6">Problem</h2>
+                <p className="text-lg text-ink/70 font-medium leading-relaxed bg-paper p-6 rounded-[15px] border border-ink shadow-[4px_4px_0_var(--ink)]">
+                  {project.problem}
+                </p>
+              </section>
+            )}
 
-            <section>
-              <h2 className="font-display text-3xl font-bold text-ink mb-6">Architecture & Solution</h2>
-              <p className="text-lg text-ink/70 font-medium leading-relaxed bg-paper p-6 rounded-[15px] border border-ink shadow-[4px_4px_0_var(--ink)]">
-                {/* TODO: Add actual solution statement data in projects.ts */}
-                [TODO: Explain the system architecture, how the AI models or workflows integrate, and the technical decisions made to solve the problem.]
-              </p>
-            </section>
+            {project.approach && (
+              <section>
+                <h2 className="font-display text-3xl font-bold text-ink mb-6">Approach</h2>
+                <p className="text-lg text-ink/70 font-medium leading-relaxed bg-paper p-6 rounded-[15px] border border-ink shadow-[4px_4px_0_var(--ink)]">
+                  {project.approach}
+                </p>
+              </section>
+            )}
 
-            <section>
-              <h2 className="font-display text-3xl font-bold text-ink mb-6">Engineering Challenges</h2>
-              <p className="text-lg text-ink/70 font-medium leading-relaxed bg-paper p-6 rounded-[15px] border border-ink shadow-[4px_4px_0_var(--ink)]">
-                {/* TODO: Add actual challenges data in projects.ts */}
-                [TODO: Describe scaling issues, prompt engineering complexities, latency optimizations, or edge-hardware constraints faced during development.]
-              </p>
-            </section>
+            {project.architecture && (
+              <section>
+                <h2 className="font-display text-3xl font-bold text-ink mb-6">Architecture & Solution</h2>
+                <p className="text-lg text-ink/70 font-medium leading-relaxed bg-paper p-6 rounded-[15px] border border-ink shadow-[4px_4px_0_var(--ink)]">
+                  {project.architecture}
+                </p>
+              </section>
+            )}
 
-            <section>
-              <h2 className="font-display text-3xl font-bold text-ink mb-6">Outcome</h2>
-              <p className="text-lg text-ink/70 font-medium leading-relaxed bg-paper p-6 rounded-[15px] border border-ink shadow-[4px_4px_0_var(--ink)]">
-                {/* TODO: Add actual outcome data in projects.ts */}
-                [TODO: Provide measurable results. Did it improve speed, accuracy, or efficiency? Is it deployed?]
-              </p>
-            </section>
+            {project.engineeringDecisions && (
+              <section>
+                <h2 className="font-display text-3xl font-bold text-ink mb-6">Engineering Decisions</h2>
+                <p className="text-lg text-ink/70 font-medium leading-relaxed bg-paper p-6 rounded-[15px] border border-ink shadow-[4px_4px_0_var(--ink)]">
+                  {project.engineeringDecisions}
+                </p>
+              </section>
+            )}
+
+            {project.result && (
+              <section>
+                <h2 className="font-display text-3xl font-bold text-ink mb-6">Outcome</h2>
+                <p className="text-lg text-ink/70 font-medium leading-relaxed bg-paper p-6 rounded-[15px] border border-ink shadow-[4px_4px_0_var(--ink)]">
+                  {project.result}
+                </p>
+              </section>
+            )}
           </div>
 
           <aside className="md:col-span-4">
