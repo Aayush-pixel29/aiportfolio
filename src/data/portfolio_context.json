@@ -1,0 +1,66 @@
+[
+  {
+    "id": "intro",
+    "text": "Hi, I'm Aayush Shelar, an AI Engineer specializing in RAG, multi-agent orchestration, and edge AI deployed where connectivity fails. I merge AI models with robust system designs, crafting intelligent products. From multi-agent RAG pipelines to autonomous systems and offline edge AI, I focus on scalable, applied AI engineering."
+  },
+  {
+    "id": "project_triagemesh",
+    "text": "TriageMesh: An integrated disaster-response system. It highlights my skills in systems design, AI, and real-time architecture. It demonstrates my ability to build production systems that operate efficiently under pressure. (GitHub: https://github.com/Aayush-pixel29/edge-tb-triage) Note: TriageMesh is related to the edge-tb-triage repository which focuses on deploying AI at the edge."
+  },
+  {
+    "id": "project_citesynth",
+    "text": "CiteSynth (SRE-Autonomous / CitySynth): A multi-agent RAG pipeline involving a planner, retrieval, synthesis, and critic. This is my strongest RAG proof point, showcasing advanced LLM orchestration, vector databases, and autonomous AI agents. (GitHub: https://github.com/Aayush-pixel29/SRE-Autonomous)"
+  },
+  {
+    "id": "project_maitri",
+    "text": "MAITRI: Multimodal AI for astronaut support. Built as an offline therapeutic companion for an ISRO SIH problem statement. It demonstrates my ability to build offline edge AI systems with a focus on human interaction and privacy. (GitHub: https://github.com/Aayush-pixel29/MAITRI)"
+  },
+  {
+    "id": "project_xray_triage",
+    "text": "X-Ray Triage Demo (Edge TB Triage): An applied computer vision project targeting deployment on edge devices (like MobileNetV2 + TFLite + Grad-CAM) for Qure.ai. It focuses on tuberculosis detection on low-power devices. (GitHub: https://github.com/Aayush-pixel29/edge-tb-triage)"
+  },
+  {
+    "id": "project_supportsense",
+    "text": "SupportSense (Transcript Scorer): A full-stack AI microservice demonstrating that I can ship end-to-end products, not just Jupyter notebooks. Evaluates support transcripts using AI. (GitHub: https://github.com/Aayush-pixel29/transcript-scorer)"
+  },
+  {
+    "id": "project_sre_swarm",
+    "text": "SRE/FinOps Triage Swarm: A LangChain multi-agent setup with hybrid Qdrant/BM25 retrieval. Directly proves my RAG, agents, and vector-DB stack capabilities for enterprise AI engineering."
+  },
+  {
+    "id": "project_recon_ai",
+    "text": "Recon AI: Intelligent surveillance and reconnaissance system using AI-powered analysis. The hardened version includes NextAuth MFA, Supabase, and an offline PWA layer (deployed at recon-ai-buildathon.vercel.app)."
+  },
+  {
+    "id": "project_traffic",
+    "text": "AI Traffic Flow Detector: A computer vision project using YOLOv8 for congestion analysis and anomaly detection in traffic flows."
+  },
+  {
+    "id": "project_cable_fault",
+    "text": "Cable Fault Detection & Monitoring: An embedded and IoT system for underground cable faults, proving my hardware and embedded C capabilities as a strong differentiator for an AI engineer."
+  },
+  {
+    "id": "skills_ai_engineering",
+    "text": "AI Engineering Toolkit: LangChain, LlamaIndex, RAG Pipelines, Vector DBs (Qdrant), Hybrid Retrieval, Multi-Agent Orchestration, Claude APIs, OpenAI APIs, Google Gemini."
+  },
+  {
+    "id": "skills_ml_cv",
+    "text": "Machine Learning & Computer Vision: TensorFlow, PyTorch, Scikit-learn, OpenCV, YOLOv8, Librosa, NLP."
+  },
+  {
+    "id": "skills_systems_cloud",
+    "text": "Systems & Cloud: Docker, Next.js, AWS, GCP, PostgreSQL, MySQL, Git."
+  },
+  {
+    "id": "skills_languages_embedded",
+    "text": "Languages & Embedded (Supporting Skills): Python, C++, Embedded C, TypeScript, Java. Hardware: Arduino, Raspberry Pi, ESP8266, IoT sensors."
+  },
+  {
+    "id": "education_experience",
+    "text": "Education: Graduated B.Tech in Electronics & Computer Engineering from Sharad Institute of Technology. Achieved a GPA of 6.73 and impacted 1000+ students through various tech events."
+  },
+  {
+    "id": "contact",
+    "text": "Contact Details: You can find me on GitHub at Aayush-pixel29 (https://github.com/Aayush-pixel29) or on LinkedIn (https://www.linkedin.com/in/aayush-shelar-166b99249/)."
+  }
+]

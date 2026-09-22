@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aayush Shelar | AI/ML & Embedded Systems</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-page: #f7f7f7;
+      --bg-dark: #111111;
+      --bg-card: #ffffff;
+      --border-soft: #e3e3e3;
+      --text-main: #111111;
+      --text-soft: #777777;
+      --accent: #111111;
+      --accent-soft: #dddddd;
+      --accent-green: #00c982;
+      --accent-blue: #0ea5e9;
+      --accent-pink: #ff006e;
+      --shadow-soft: 0 8px 22px rgba(0, 0, 0, 0.06);
+      --container-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(var(--container-width), 92%);
+      margin: 0 auto;
+    }
+
+    /* HEADER / NAVBAR */
+    header {
+      background: var(--bg-dark);
+      color: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .logo-text {
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      font-size: 0.85rem;
+      text-transform: lowercase;
+    }
+
+    .nav-links a {
+      opacity: 0.8;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: #ffffff;
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-icons a {
+      opacity: 0.7;
+    }
+
+    .nav-icons a:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* HERO SECTION: designer / coder */
+    .hero-wrapper {
+      background: #ffffff;
+      border-bottom: 1px solid #ebebeb;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr minmax(220px, 280px) 1.1fr;
+      align-items: center;
+      padding: 70px 0 56px;
+      text-align: center;
+      column-gap: 32px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        row-gap: 30px;
+        padding: 50px 0 40px;
+      }
+    }
+
+    .hero-left h1,
+    .hero-right h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.7rem, 4vw, 3.6rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      text-transform: lowercase;
+    }
+
+    .hero-left p,
+    .hero-right p {
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .hero-right h1 {
+      font-family: 'Courier New', monospace;
+    }
+
+    .hero-center {
+      position: relative;
+    }
+
+    .hero-portrait {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+      background: #f3f3f3;
+    }
+
+    .hero-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-tagline {
+      margin-top: 14px;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .hero-role {
+      margin-top: 6px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* BELOW-HERO INTRO SECTION */
+    .intro {
+      max-width: 720px;
+      margin: 24px auto 40px;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+
+    .intro strong {
+      color: var(--text-main);
+    }
+
+    .hero-metadata {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      margin-top: 10px;
+      color: var(--text-soft);
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid #e2e2e2;
+      padding: 0.4rem 0.9rem;
+      background: #fafafa;
+    }
+
+    /* SECTION WRAPPER */
+    section {
+      padding: 56px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+      margin-bottom: 18px;
+    }
+
+    .section-heading {
+      text-align: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 34px;
+    }
+
+    /* LATEST WORK (like the screenshot) */
+    .work-section {
+      background: var(--bg-page);
+      border-top: 1px solid #e6e6e6;
+      border-bottom: 1px solid #e6e6e6;
+      padding-bottom: 60px;
+    }
+
+    .work-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    @media (min-width: 900px) {
+      .work-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .work-card {
+      background: #ffffff;
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+      padding: 14px 16px 16px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .work-thumb {
+    background: #f3f3f3;
+    border-radius: 4px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  overflow: hidden; /* important to prevent image overflow */
+}
+
+.work-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* makes the image fill cleanly */
+  border-radius: 4px;
+}
+
+
+    .work-meta-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .work-meta-sub {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    .work-link {
+      margin-top: auto;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-main);
+    }
+
+    .work-link span {
+      margin-left: 0.25rem;
+      transition: transform 0.18s ease;
+    }
+
+    .work-link:hover span {
+      transform: translateX(3px);
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .skills-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .skill-card {
+      background: #ffffff;
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+      padding: 18px 16px 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .skill-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 8px;
+      color: var(--text-soft);
+    }
+
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skill-chip {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid #e2e2e2;
+      background: #fafafa;
+      color: #555;
+    }
+
+    /* EXPERIENCE */
+    .timeline {
+      max-width: 900px;
+      margin: 0 auto;
+      border-left: 2px solid #e0e0e0;
+      padding-left: 26px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 26px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -32px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 2px solid var(--accent-green);
+      box-shadow: 0 0 0 4px rgba(0, 201, 130, 0.16);
+    }
+
+    .timeline-card {
+      background: #ffffff;
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 6px;
+    }
+
+    .timeline-role {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .timeline-time {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      font-weight: 500;
+    }
+
+    .timeline-org {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .timeline-description {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+    }
+
+    .timeline-description li {
+      margin-bottom: 4px;
+      margin-left: 1rem;
+    }
+
+    /* ACHIEVEMENTS */
+    .awards-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 760px) {
+      .awards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .award-card {
+      background: #ffffff;
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+      position: relative;
+    }
+
+    .award-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .award-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .award-detail {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    /* CONTACT */
+    .contact-main {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-text {
+      font-size: 0.96rem;
+      color: var(--text-soft);
+      margin-bottom: 26px;
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    @media (min-width: 760px) {
+      .contact-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .contact-card {
+      background: #ffffff;
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+      padding: 16px 12px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      word-break: break-word;
+    }
+
+    .social-row {
+      margin-top: 26px;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.86rem;
+    }
+
+    .social-pill {
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      padding: 0.5rem 0.9rem;
+      background: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #ffffff;
+      border-top: 1px solid #e4e4e4;
+      padding: 18px 0 16px;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    footer span {
+      font-family: 'Space Grotesk', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* SIMPLE SMOOTH SCROLL */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-circle">AS</div>
+        <div class="logo-text">Aayush Shelar</div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#top">About</a>
+        <a href="#work">Project</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-icons">
+        <a href="https://github.com/Aayush-pixel29" target="_blank" aria-label="GitHub">Git</a>
+        <a href="https://www.linkedin.com/in/aayush-shelar-166b99249/" target="_blank" aria-label="LinkedIn">lin</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="top">
+    <div class="hero-wrapper">
+      <div class="container hero">
+
+        <div class="hero-left">
+          <h1>engineer</h1>
+          <p>
+            AI/ML & embedded systems engineer crafting intelligent products,  
+            clean interfaces and robust system designs.
+          </p>
+        </div>
+
+        <div class="hero-center">
+          <div class="hero-portrait">
+            <!-- Put your actual image file as my-photo.png in same folder -->
+            <img src="my-photo.png" alt="Aayush Shelar Portrait" />
+          </div>
+          <p class="hero-tagline">Ai/Ml · Embedded · Iot</p>
+          <p class="hero-role">Final-year B.Tech · Sharad Institute of Technology</p>
+        </div>
+
+        <div class="hero-right">
+          <h1>&lt;coder&gt;</h1>
+          <p>
+            Python, C++, and embedded C writing production-ready code that powers
+            real-world hardware & intelligent systems.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="container">
+        <div class="intro">
+          Final-year <strong>Electronics & Computer Engineering</strong> student merging
+          AI models with embedded hardware.  
+          From astronaut mental-health companions to smart traffic systems and cable-fault
+          diagnostics, I focus on <strong>India-first, impact-driven solutions</strong>.
+        </div>
+
+        <div class="hero-metadata">
+          <span class="pill">GPA 6.73</span>
+          <span class="pill">5+ major projects</span>
+          <span class="pill">1000+ students impacted through events</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LATEST WORK / FEATURED PROJECTS (designer/coder style row) -->
+    <section id="work" class="work-section">
+      <div class="container">
+        <div class="section-title">some of my latest work</div>
+
+        <div class="work-grid">
+          <!-- MAITRI -->
+          <article class="work-card">
+            <div class="work-thumb">
+            <img src="images/maitri.png" alt="MAITRI AI Companion">
+            </div>
+            <div class="work-meta-title">MAITRI – Multimodal AI for astronaut support</div>
+            <div class="work-meta-sub">Offline therapeutic companion · ISRO SIH problem statement</div>
+            <a class="work-link" href="https://github.com/Aayush-pixel29/MAITRI" target="_blank">
+              view project<span>↗</span>
+            </a>
+          </article>
+
+          <!-- Traffic -->
+          <article class="work-card">
+            <div class="work-thumb">
+            <img src="images/traffic.png" alt="Traffic Flow Detector">
+            </div>
+            <div class="work-meta-title">AI Traffic Flow Detector</div>
+            <div class="work-meta-sub">YOLOv8 based congestion analysis & anomaly detection</div>
+            <a class="work-link" href="https://github.com/Aayush-pixel29/AI-Traffic-Flow-Analyzer" target="_blank">
+              view project<span>↗</span>
+            </a>
+          </article>
+
+          <!-- Cable Fault -->
+          <article class="work-card">
+            <div class="work-thumb">
+            <img src="images/cable-fault.png" alt="Cable Fault Detection System">
+            </div>
+            <div class="work-meta-title">Cable Fault Detection & Monitoring</div>
+            <div class="work-meta-sub">Embedded + IoT system for underground cable faults (photos & demo)</div>
+            <!-- TODO: replace this placeholder with your real Google Drive folder / video link -->
+            <a class="work-link" href="https://drive.google.com/drive/folders/1brQHI2ju_9VCsWMrJ1aiuH4VE-EFXqwR?usp=sharing" target="_blank">
+              view hardware demo<span>↗</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">technical arsenal</div>
+        <h2 class="section-heading">A toolkit across AI, firmware & cloud</h2>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-title">languages</div>
+            <div class="skill-items">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">C++</span>
+              <span class="skill-chip">Embedded C</span>
+              <span class="skill-chip">Java</span>
+              <span class="skill-chip">JavaScript</span>
+              <span class="skill-chip">SQL</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-title">ai / ml</div>
+            <div class="skill-items">
+              <span class="skill-chip">TensorFlow</span>
+              <span class="skill-chip">PyTorch</span>
+              <span class="skill-chip">Scikit-learn</span>
+              <span class="skill-chip">Computer Vision · OpenCV</span>
+              <span class="skill-chip">Librosa</span>
+              <span class="skill-chip">NLP</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-title">dev & ops</div>
+            <div class="skill-items">
+              <span class="skill-chip">Docker</span>
+              <span class="skill-chip">Git / GitHub</span>
+              <span class="skill-chip">AWS</span>
+              <span class="skill-chip">GCP</span>
+              <span class="skill-chip">MySQL</span>
+              <span class="skill-chip">Jupyter</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-title">hardware & iot</div>
+            <div class="skill-items">
+              <span class="skill-chip">Arduino</span>
+              <span class="skill-chip">Raspberry Pi</span>
+              <span class="skill-chip">ESP8266</span>
+              <span class="skill-chip">ATmega</span>
+              <span class="skill-chip">GSM / LoRa</span>
+              <span class="skill-chip">Sensors & IMUs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILED PROJECTS – UPDATED WITH 4 SOFTWARE PROJECTS -->
+    <section>
+      <div class="container">
+        <div class="section-title">featured projects – deep dive</div>
+        <h2 class="section-heading">Where AI meets human interaction</h2>
+
+        <div class="work-grid" style="margin-top:8px;">
+          <!-- Real-Time Sign Language & Emotion Detector -->
+          <article class="work-card">
+            <div class="work-thumb">
+            <img src="images/sign-language.png" alt="Sign Language Detector">
+            </div>
+            <div class="work-meta-title">Real-Time AI Sign Language & Emotion Detector</div>
+            <div class="work-meta-sub" style="margin-bottom:6px;">
+              Real-time system that detects sign language gestures and facial emotions from live video.
+            </div>
+            <p style="font-size:0.86rem;color:var(--text-soft);">
+              Combines computer vision and deep learning to interpret hand signs and facial expressions,
+              enabling more accessible, multimodal human–computer interaction.
+            </p>
+            <a class="work-link" href="https://github.com/Aayush-pixel29/Real-Time-AI-Sign-Language-Emotion-Detector" target="_blank">
+              view on github<span>↗</span>
+            </a>
+          </article>
+
+          <!-- Recon AI Prototype -->
+          <article class="work-card">
+            <div class="work-thumb">
+            <img src="images/recon-ai.png" alt="Recon AI Prototype">
+            </div>
+            <div class="work-meta-title">Recon AI Prototype</div>
+            <div class="work-meta-sub" style="margin-bottom:6px;">
+              Prototype for intelligent surveillance / reconnaissance using AI-powered analysis.
+            </div>
+            <p style="font-size:0.86rem;color:var(--text-soft);">
+              Uses modern vision models to analyse frames, detect relevant objects and support
+              situational awareness laying groundwork for smarter security and monitoring tools.
+            </p>
+            <a class="work-link" href="https://github.com/Aayush-pixel29/Recon-AI-Prototype" target="_blank">
+              view on github<span>↗</span>
+            </a>
+          </article>
+
+          <!-- Aura App -->
+          <article class="work-card">
+            <div class="work-thumb">
+            <img src="images/aura-app.png" alt="Aura Mood App">
+            </div>
+            <div class="work-meta-title">Aura – AI-Powered Wellness App</div>
+            <div class="work-meta-sub" style="margin-bottom:6px;">
+              A personal wellness / mood-tracking assistant powered by intelligent insights.
+            </div>
+            <p style="font-size:0.86rem;color:var(--text-soft);">
+              Provides a clean interface and AI-backed logic to log moods, surface patterns and help
+              users stay mindful about their mental state over time.
+            </p>
+            <a class="work-link" href="https://github.com/Aayush-pixel29/aura-app" target="_blank">
+              view on github<span>↗</span>
+            </a>
+          </article>
+
+          <!-- Financial Sentiment Analysis -->
+          <article class="work-card">
+            <div class="work-thumb">
+            <img src="images/sentiment.png" alt="Financial Sentiment Analysis">
+            </div>
+            <div class="work-meta-title">Financial Sentiment Analysis</div>
+            <div class="work-meta-sub" style="margin-bottom:6px;">
+              NLP pipeline that turns financial news into quantified market sentiment.
+            </div>
+            <p style="font-size:0.86rem;color:var(--text-soft);">
+              Processes articles, cleans text and applies sentiment models to extract positive/negative
+              market signals—giving investors a data-driven view of the news cycle.
+            </p>
+            <a class="work-link" href="https://github.com/Aayush-pixel29/financial-sentiment-analysis" target="_blank">
+              view on github<span>↗</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-title">career journey</div>
+        <h2 class="section-heading">Learning by building & leading</h2>
+
+        <div class="timeline">
+          <!-- Rapid System -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-role">Student Developer (Intern)</div>
+                <div class="timeline-time">Jun 2024 – Jul 2024</div>
+              </div>
+              <div class="timeline-org">Rapid System, Ichalkaranji</div>
+              <ul class="timeline-description">
+                <li>Worked on microcontroller-based dynamic balancing machines, assisting in development, troubleshooting and testing.</li>
+                <li>Collaborated with industry professionals on embedded software and industrial electronics service tasks.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Event head -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-role">Event Head</div>
+                <div class="timeline-time">Jan 2024 – Jan 2025</div>
+              </div>
+              <div class="timeline-org">Developer Student Clubs ECESA, Maharashtra</div>
+              <ul class="timeline-description">
+                <li>Conducted online & offline training plus Code Trix event, impacting 1000+ students.</li>
+                <li>Led workshops and mentoring to grow a hands-on developer community.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Volunteer -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-role">Volunteer</div>
+                <div class="timeline-time">Jan 2022 – July 2023</div>
+              </div>
+              <div class="timeline-org">ETESA with Team TRINETRA (IETE), Maharashtra</div>
+              <ul class="timeline-description">
+                <li>Organised events & workshops reaching 250+ students.</li>
+                <li>Delivered technical sessions on electronics & emerging technologies.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- B.Tech -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-role">B.Tech – Electronics & Computer Engineering</div>
+                <div class="timeline-time">Jul 2022 – Present</div>
+              </div>
+              <div class="timeline-org">Sharad Institute of Technology, Maharashtra</div>
+              <ul class="timeline-description">
+                <li>GPA 6.73 · Key courses: OS, DS, AI, CN, DBMS, Embedded Systems.</li>
+                <li>Active in hackathons, technical competitions and innovation challenges.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section>
+      <div class="container">
+        <div class="section-title">achievements</div>
+        <h2 class="section-heading">Recognised for innovation</h2>
+
+        <div class="awards-grid">
+          <div class="award-card">
+            <div class="award-icon">🏆</div>
+            <div class="award-title">Runner-up – Aquaquest</div>
+            <p class="award-detail">Electrovert International Level Mega Event</p>
+            <p class="award-detail">November 2024</p>
+          </div>
+
+          <div class="award-card">
+            <div class="award-icon">🎯</div>
+            <div class="award-title">DIPEX Participant</div>
+            <p class="award-detail">State Level Exhibition-cum-Competition of Working Models</p>
+            <p class="award-detail">March 2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">let's connect</div>
+        <h2 class="section-heading">Open to internships & collaborations</h2>
+
+        <div class="contact-main">
+          <p class="contact-text">
+            I’m always happy to talk about AI/ML, embedded systems and ambitious ideas.
+            If you’re looking for someone who can move between <strong>models and microcontrollers</strong>,
+            feel free to reach out.
+          </p>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-label">email</div>
+              <a class="contact-value" href="mailto:shelaraayush535@gmail.com">
+                shelaraayush535@gmail.com
+              </a>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-label">phone</div>
+              <a class="contact-value" href="tel:+919175227454">
+                +91-9175227454
+              </a>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-label">based in</div>
+              <div class="contact-value">Kolhapur, Maharashtra, India</div>
+            </div>
+          </div>
+
+          <div class="social-row">
+            <a class="social-pill" href="https://github.com/Aayush-pixel29" target="_blank">💻 GitHub</a>
+            <a class="social-pill" href="https://www.linkedin.com/in/aayush-shelar-166b99249/" target="_blank">💼 LinkedIn</a>
+            <a class="social-pill" href="mailto:shelaraayush535@gmail.com">📧 Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <span>© 2025 aayush shelar</span>
+      <div style="margin-top:4px;">built with curiosity, code & coffee.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
