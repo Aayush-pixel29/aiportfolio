@@ -9,10 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
+        bg: "var(--bg)",
         paper: "var(--paper)",
         ink: "var(--ink)",
-        electric: "var(--electric)",
+        muted: "var(--muted)",
+        line: "var(--line)",
+        blue: "var(--blue)",
         violet: "var(--violet)",
         coral: "var(--coral)",
         mint: "var(--mint)",
@@ -20,9 +22,9 @@ const config: Config = {
         dark: "var(--dark)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        display: ["var(--font-space-grotesk)", "sans-serif"],
-        mono: ["var(--font-dm-mono)", "monospace"],
+        sans: ["var(--font-space-grotesk)", "Space Grotesk", "sans-serif"],
+        display: ["var(--font-space-grotesk)", "Space Grotesk", "sans-serif"],
+        mono: ["var(--font-dm-mono)", "DM Mono", "monospace"],
       },
     },
   },

@@ -4,22 +4,60 @@
 
 @layer base {
   :root {
-    --background: #F4F1FF;
-    --paper: #FFFDF8;
-    --ink: #15162B;
-    --electric: #3457FF;
-    --violet: #8B6DFF;
-    --coral: #FF665D;
-    --mint: #BAFFB2;
-    --cyan: #9BEAFF;
-    --dark: #17192F;
+    --bg: #f4f1ff;
+    --paper: #fffdf8;
+    --ink: #15162b;
+    --muted: #66687b;
+    --line: #cec9df;
+    --blue: #3457ff;
+    --violet: #8b6dff;
+    --coral: #ff665d;
+    --mint: #baffb2;
+    --cyan: #9beaff;
+    --dark: #17192f;
   }
-  
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    background-color: var(--background);
+    background-color: var(--bg);
     color: var(--ink);
+    font-family: "Space Grotesk", sans-serif;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Dot grid background */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(52, 87, 255, 0.12) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Violet glow */
+  body::after {
+    content: "";
+    position: fixed;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    right: -260px;
+    top: 12%;
+    z-index: -2;
+    background: radial-gradient(circle, rgba(139, 109, 255, 0.18), transparent 68%);
+    pointer-events: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 }
 
@@ -39,9 +77,51 @@
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(21, 22, 43, 0.2);
   }
+
+  /* Neo-brutalist shadow */
+  .shadow-brutal {
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+  .shadow-brutal-blue {
+    box-shadow: 13px 14px 0 var(--blue);
+  }
+  .shadow-brutal-coral {
+    box-shadow: 7px 7px 0 var(--coral);
+  }
 }
 
-/* Base link styles */
-a {
-  @apply transition-colors duration-200;
+@layer utilities {
+  .font-mono-label {
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+}
+
+/* Ticker animation */
+@keyframes ticker-move {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.ticker-track {
+  display: inline-block;
+  padding: 13px 0;
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  animation: ticker-move 24s linear infinite;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.7s ease;
+}
+.reveal.show {
+  opacity: 1;
+  transform: none;
 }

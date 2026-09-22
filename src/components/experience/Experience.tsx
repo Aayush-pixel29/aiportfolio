@@ -21,23 +21,23 @@ export const Experience = () => {
             className="group grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start"
           >
             <div className="md:col-span-3 pt-1">
-              <span className="font-mono text-sm font-medium text-ink/50 group-hover:text-electric transition-colors">
+              <span className="font-mono text-[13px] font-bold text-ink/50 group-hover:text-blue transition-colors uppercase tracking-widest">
                 {exp.period}
               </span>
             </div>
             
             <div className="md:col-span-9 flex flex-col">
-              <h3 className="font-display text-2xl font-medium text-ink mb-2">
+              <h3 className="font-display text-2xl font-bold text-ink mb-2">
                 {exp.title}
               </h3>
-              <div className="text-lg text-ink/60 mb-6">
+              <div className="text-lg font-medium text-ink/60 mb-6">
                 {exp.organization}
               </div>
               
               <ul className="space-y-3">
                 {exp.description.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-ink/70">
-                    <span className="text-electric font-bold mt-0.5">·</span>
+                  <li key={i} className="flex items-start gap-3 text-ink/80">
+                    <span className="text-coral font-bold mt-0.5">·</span>
                     <span>{item}</span>
                   </li>
                 ))}

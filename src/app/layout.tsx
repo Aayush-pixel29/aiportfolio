@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} ${dmMono.variable} font-sans bg-background text-ink antialiased min-h-screen relative selection:bg-electric selection:text-white`}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} ${dmMono.variable} font-sans bg-bg text-ink antialiased min-h-screen relative selection:bg-blue selection:text-white`}>
         <Providers>
           <main className="w-full min-h-screen relative z-10 flex flex-col">
             {children}

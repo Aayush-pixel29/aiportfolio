@@ -43,13 +43,13 @@ export const Proof = () => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="flex flex-col"
           >
-            <div className="font-display text-6xl md:text-7xl font-medium text-electric mb-6">
+            <div className="font-display text-6xl md:text-7xl font-bold text-blue mb-6">
               {proof.stat}
             </div>
-            <h3 className="font-mono text-sm uppercase tracking-widest font-medium text-ink mb-2">
+            <h3 className="font-mono text-[13px] uppercase tracking-widest font-bold text-ink mb-2">
               {proof.label}
             </h3>
-            <p className="text-ink/60 text-lg">
+            <p className="text-ink/60 text-lg font-medium">
               {proof.description}
             </p>
           </motion.div>

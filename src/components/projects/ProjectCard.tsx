@@ -24,17 +24,17 @@ export const ProjectCard = ({ project, index, className }: ProjectCardProps) => 
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className={cn(
-        "group relative bg-white border border-ink/5 rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-electric/5 transition-all duration-500 flex flex-col h-full",
+        "group relative bg-paper border border-ink rounded-[20px] overflow-hidden hover:-translate-y-2 hover:shadow-brutal-blue transition-all duration-300 flex flex-col h-full",
         className
       )}
     >
       <div className="flex-1 p-8 md:p-10 flex flex-col">
         <div className="flex justify-between items-start mb-8">
           <span className="font-mono text-sm text-ink/30 font-medium">/{number}</span>
-          <Badge variant="electric" className="bg-electric/5">{project.category}</Badge>
+          <Badge variant="blue">{project.category}</Badge>
         </div>
 
-        <h3 className="font-display text-2xl md:text-3xl font-medium text-ink mb-4 group-hover:text-electric transition-colors">
+        <h3 className="font-display text-2xl md:text-3xl font-medium text-ink mb-4 group-hover:text-blue transition-colors">
           {project.title}
         </h3>
         
@@ -44,13 +44,13 @@ export const ProjectCard = ({ project, index, className }: ProjectCardProps) => 
 
         <div className="flex flex-wrap items-center gap-2 mb-8">
           {project.stack.map(tech => (
-            <span key={tech} className="px-3 py-1 rounded-full bg-paper border border-ink/5 text-xs font-mono text-ink/60 group-hover:border-electric/20 transition-colors">
+            <span key={tech} className="px-3 py-1 rounded-[6px] bg-bg border border-ink/20 text-xs font-mono text-ink/80 group-hover:border-blue/50 transition-colors">
               {tech}
             </span>
           ))}
         </div>
 
-        <div className="pt-6 border-t border-ink/5 flex items-center justify-between">
+        <div className="pt-6 border-t border-ink/10 flex items-center justify-between">
           <div className="flex items-center gap-4">
             {project.github && (
               <a 
@@ -69,7 +69,7 @@ export const ProjectCard = ({ project, index, className }: ProjectCardProps) => 
           </div>
           <Link 
             href={`/work/${project.slug}`} 
-            className="flex items-center gap-2 text-electric font-medium text-sm hover:underline"
+            className="flex items-center gap-2 text-blue font-bold text-[13px] uppercase tracking-wider hover:underline"
           >
             Case Study
             <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

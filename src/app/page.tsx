@@ -8,12 +8,15 @@ import { Experience } from "@/components/experience/Experience";
 import { FreelanceCTA } from "@/components/freelance/FreelanceCTA";
 import { Contact } from "@/components/contact/Contact";
 
+import { Ticker } from "@/components/ui/Ticker";
+
 export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="w-full relative bg-background">
+      <div className="w-full relative bg-bg">
         <Hero />
+        <Ticker />
         <Journey />
         <ProjectGrid />
         <Proof />

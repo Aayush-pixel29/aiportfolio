@@ -37,12 +37,12 @@ export const Journey = () => {
       <SectionLabel number="01" title="Journey" />
       
       <div className="mb-20 max-w-3xl">
-        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-ink leading-tight">
-          A hybrid engineer with a <span className="text-electric">software-first</span> direction.
+        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-ink leading-tight">
+          A hybrid engineer with a <span className="text-blue bg-blue/10 px-2 rounded-lg">software-first</span> direction.
         </h2>
       </div>
 
-      <div className="relative pl-6 md:pl-10 border-l-2 border-electric/20 space-y-24">
+      <div className="relative pl-6 md:pl-10 border-l-2 border-ink space-y-24">
         {timeline.map((item, index) => (
           <motion.div 
             key={index}
@@ -53,23 +53,23 @@ export const Journey = () => {
             className="relative"
           >
             {/* Timeline node */}
-            <div className="absolute -left-[31px] md:-left-[47px] top-1 w-4 h-4 rounded-full bg-paper border-4 border-electric shadow-sm shadow-electric/20" />
+            <div className="absolute -left-[32px] md:-left-[48px] top-1 w-5 h-5 rounded-full bg-mint border-[3px] border-ink shadow-[2px_2px_0_var(--ink)]" />
             
-            <div className="mb-2 text-electric font-mono text-sm font-medium tracking-wider">
+            <div className="mb-2 text-blue font-mono text-[13px] font-bold tracking-widest uppercase">
               {item.period}
             </div>
             
-            <h3 className="text-2xl md:text-3xl font-display font-medium text-ink mb-4">
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-ink mb-4">
               {item.title}
             </h3>
             
-            <p className="text-ink/60 mb-6 text-lg">
+            <p className="text-ink/60 mb-6 text-lg font-medium">
               {item.description}
             </p>
             
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3">
               {item.areas.map(area => (
-                <span key={area} className="px-4 py-2 rounded-lg bg-ink/5 text-ink/70 text-sm font-medium border border-ink/5">
+                <span key={area} className="px-3 py-1.5 rounded-[8px] bg-paper border border-ink shadow-[2px_2px_0_var(--ink)] text-xs font-bold text-ink">
                   {area}
                 </span>
               ))}
