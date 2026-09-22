@@ -9,19 +9,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        primary: "var(--primary)",
-        accent: "var(--accent)",
+        background: "var(--bg)",
+        surface: "var(--surface)",
         border: "var(--border)",
-        muted: "var(--muted)",
+        text: {
+          DEFAULT: "var(--text)",
+          dim: "var(--text-dim)",
+        },
+        signal: {
+          amber: "var(--signal-amber)",
+          cyan: "var(--signal-cyan)",
+        }
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'sans-serif'],
-        mono: ['var(--font-fira-code)', 'monospace'],
+        sans: ["var(--font-inter)", "sans-serif"],
+        display: ["var(--font-space-grotesk)", "sans-serif"],
+        mono: ["var(--font-ibm-plex-mono)", "monospace"],
       },
     },
   },
   plugins: [],
 };
+
 export default config;

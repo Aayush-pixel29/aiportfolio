@@ -1,42 +1,44 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function Experience() {
+  const experiences = [
+    {
+      role: "Product Support Engineer Intern",
+      company: "SEDEMAC Mechatronics Ltd.",
+      desc: "Assisted in testing and validating automotive electronic products, troubleshooting technical issues, preparing technical documentation, and supporting engineering teams. Gained hands-on experience with embedded automotive systems, quality assurance processes, and cross-functional collaboration in a fast-paced manufacturing environment.",
+    },
+    {
+      role: "ML Model Training Intern",
+      company: "Cognifyz Technologies",
+      desc: "Worked on ML model training and deployment processes, analyzing datasets and optimizing predictive models.",
+    },
+    {
+      role: "Event Head",
+      company: "Developer Student Clubs (DSC) ECESA",
+      desc: "Trained 1000+ students in technical workshops and organized Code Trix, fostering a strong local developer community.",
+    }
+  ];
+
   return (
-    <section id="experience" className="py-20 bg-gray-50 border-t border-border">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold">Experience & Education</h2>
-          </div>
+    <div className="w-full py-24 border-b border-border z-10 relative" id="experience">
+      <h2 className="text-sm font-mono text-signal-cyan tracking-widest uppercase mb-12">
+        {"//"} Experience
+      </h2>
 
-          <div className="relative border-l-2 border-primary/30 pl-8 ml-4">
-            
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="mb-12 relative"
-            >
-              <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full border-4 border-white bg-primary shadow-sm" />
-              <div className="bg-white p-6 rounded-xl border border-border shadow-sm card-hover">
-                <h3 className="text-xl font-bold">Sharad Institute of Technology</h3>
-                <p className="text-primary font-medium text-sm mb-4">B.Tech in Electronics & Computer Engineering (2022 - 2026)</p>
-                <p className="text-muted text-sm mb-4">
-                  Graduated with a focus on blending embedded hardware with AI systems. Maintained a 6.73 GPA while dedicating significant time to practical engineering, hackathons, and systems building.
-                </p>
-                <ul className="list-disc list-inside text-sm text-muted space-y-1 ml-2">
-                  <li>Delivered 5+ major projects bridging software, AI, and hardware.</li>
-                  <li>Impacted over 1000 students through technical events and workshops.</li>
-                  <li>Shifted focus to advanced applied AI engineering, including multi-agent RAG pipelines and autonomous LLM workflows.</li>
-                </ul>
-              </div>
-            </motion.div>
-
+      <div className="flex flex-col gap-8">
+        {experiences.map((exp, i) => (
+          <div key={i} className="flex flex-col md:flex-row gap-4 md:gap-12 relative group">
+            <div className="absolute left-[-16px] md:left-[-24px] top-2 w-2 h-2 rounded-full bg-border group-hover:bg-signal-cyan transition-colors" />
+            <div className="md:w-1/3">
+              <h3 className="text-xl font-display font-medium text-white">{exp.role}</h3>
+              <p className="text-signal-amber font-mono text-sm mt-1">{exp.company}</p>
+            </div>
+            <div className="md:w-2/3">
+              <p className="text-text-dim leading-relaxed text-sm md:text-base">
+                {exp.desc}
+              </p>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

@@ -41,11 +41,11 @@ const projects = [
 
 export default function FeaturedWork() {
   return (
-    <section id="work" className="py-20 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="work" className="py-20 relative">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="mb-12">
           <span className="text-sm font-bold tracking-widest text-primary uppercase">Featured Projects</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2">Where AI meets system design</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2 text-white">Where AI meets system design</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -56,34 +56,34 @@ export default function FeaturedWork() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group border border-border rounded-xl bg-background card-hover flex flex-col h-full overflow-hidden"
+              className="phantom-card flex flex-col h-full overflow-hidden neo-hover bg-white"
             >
-              <div className="relative h-48 w-full bg-gray-100 overflow-hidden">
+              <div className="relative h-56 w-full overflow-hidden border-b-[3px] border-neo-black">
                 <Image 
                   src={project.image} 
                   alt={project.title} 
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
-              <div className="p-6 flex flex-col flex-1">
+              <div className="p-6 flex flex-col flex-1 relative z-10">
                 <div className="mb-4 flex flex-wrap gap-2">
                   {project.tags.map(tag => (
-                    <span key={tag} className="px-2.5 py-1 text-xs font-medium bg-primary/10 text-primary-dark rounded-md">
+                    <span key={tag} className="px-2 py-1 text-xs font-bold bg-[#0A0A0E] border border-white/10 shadow-sm">
                       {tag}
                     </span>
                   ))}
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-1">{project.title}</h3>
-                <p className="text-sm font-medium text-primary mb-4">{project.subtitle}</p>
+                <h3 className="text-2xl font-bold font-mono mb-1 text-white">{project.title}</h3>
+                <p className="text-sm font-bold text-white/60 mb-4 uppercase tracking-wider">{project.subtitle}</p>
                 
-                <p className="text-muted text-sm mb-6 flex-1">
+                <p className="text-white text-sm mb-6 flex-1 font-medium leading-relaxed">
                   {project.description}
                 </p>
 
-                <div className="pt-4 border-t border-border flex items-center gap-4">
-                  <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold hover:text-primary transition-colors">
+                <div className="pt-4 border-t-[3px] border-neo-black flex items-center gap-4">
+                  <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 phantom-btn-primary px-4 py-2 text-sm">
                     <Code size={16} /> GitHub
                   </a>
                 </div>

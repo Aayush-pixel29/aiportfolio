@@ -51,10 +51,10 @@ const otherProjects = [
 
 export default function OtherProjects() {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="py-20 relative">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold">More Work & Experiments</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">More Work & Experiments</h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -65,37 +65,39 @@ export default function OtherProjects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="group border border-border rounded-xl bg-background card-hover flex flex-col h-full overflow-hidden"
+              className="phantom-card bg-[#0A0A0E] flex flex-col h-full neo-hover"
             >
-              <div className="relative h-40 w-full bg-gray-100 overflow-hidden border-b border-border">
+              <div className="relative h-40 w-full overflow-hidden border-b-[3px] border-neo-black bg-white">
                 {project.image ? (
-                  <Image 
-                    src={project.image} 
-                    alt={project.title} 
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  <>
+                    <Image 
+                      src={project.image} 
+                      alt={project.title} 
+                      fill
+                      className="object-cover transition-transform duration-700 hover:scale-105"
+                    />
+                  </>
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gray-100 text-gray-400">
-                    No Image
+                  <div className="w-full h-full flex items-center justify-center font-bold text-white/40 text-xl font-mono">
+                    NO_IMAGE
                   </div>
                 )}
               </div>
               
-              <div className="p-5 flex flex-col flex-1">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="font-bold text-lg group-hover:text-primary transition-colors pr-4">{project.title}</h3>
+              <div className="p-5 flex flex-col flex-1 relative z-10">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-bold font-mono text-lg text-white pr-4">{project.title}</h3>
                   {project.link !== "#" && (
-                    <a href={project.link} target="_blank" rel="noreferrer" className="text-muted hover:text-foreground">
-                      <ExternalLink size={18} />
+                    <a href={project.link} target="_blank" rel="noreferrer" className="text-white hover:scale-110 transition-transform">
+                      <ExternalLink size={20} strokeWidth={2.5} />
                     </a>
                   )}
                 </div>
-                <p className="text-muted text-sm flex-1 mb-6">{project.description}</p>
+                <p className="text-white/80 text-xs flex-1 mb-4 font-medium leading-relaxed">{project.description}</p>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {project.tags.map(tag => (
-                    <span key={tag} className="text-xs font-medium text-muted">
+                    <span key={tag} className="px-2 py-0.5 text-[10px] font-bold bg-white text-white border border-white/10 shadow-sm">
                       #{tag}
                     </span>
                   ))}

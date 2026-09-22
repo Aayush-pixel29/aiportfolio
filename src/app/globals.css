@@ -2,47 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #fdfdfc;
-  --foreground: #171717;
-  --primary: #fbbf24; /* Amber/Yellow for accents */
-  --accent: #fcd34d;
-  --border: #e5e5e5;
-  --muted: #737373;
-}
-
-@media (prefers-color-scheme: dark) {
-  /* No dark mode, keeping clean white/yellow aesthetic */
+@layer base {
   :root {
-    --background: #fdfdfc;
-    --foreground: #171717;
-    --primary: #fbbf24;
-    --accent: #fcd34d;
-    --border: #e5e5e5;
-    --muted: #737373;
+    --bg: #0B0D10;
+    --surface: #13161B;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #E8E9EC;
+    --text-dim: #8A8F98;
+    --signal-amber: #FF6B3D;
+    --signal-cyan: #4FD1FF;
+  }
+  
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  scroll-behavior: smooth;
+@layer components {
+  .signal-card {
+    @apply bg-surface border border-border rounded-xl p-6 md:p-8 transition-colors duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-signal-amber text-white px-6 py-3 rounded-xl font-medium hover:bg-opacity-90 transition-all active:scale-95 text-sm uppercase tracking-wider;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent text-text px-6 py-3 rounded-xl font-medium border border-border hover:border-signal-cyan hover:text-signal-cyan transition-all active:scale-95 text-sm uppercase tracking-wider;
+  }
+
+  .tech-tag {
+    @apply bg-white/5 border border-white/10 rounded px-2 py-1 text-xs font-mono text-text-dim;
+  }
 }
 
-.glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
-}
-
-.card-hover {
-  transition: all 0.3s ease;
-}
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
-  border-color: var(--primary);
+/* Base link styles */
+a {
+  @apply transition-colors duration-200;
 }
