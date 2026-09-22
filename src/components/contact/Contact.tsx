@@ -11,10 +11,26 @@ export const Contact = () => {
   });
   const [sent, setSent] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    // Add real form submission logic here
+    try {
+      const response = await fetch("https://formspree.io/f/xlgqrkel", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+      if (response.ok) {
+        setSent(true);
+        setFormData({ name: '', email: '', company: '', message: '' });
+        setTimeout(() => setSent(false), 5000); // Reset sent status after 5s
+      } else {
+        alert("Oops! There was a problem submitting your form");
+      }
+    } catch (error) {
+      alert("Oops! There was a problem submitting your form");
+    }
   };
 
   const scrollToTop = () => {
@@ -72,6 +88,7 @@ export const Contact = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <input
                 type="text"
+                name="name"
                 placeholder="Name"
                 className="flex-1 bg-transparent border border-white/20 rounded-xl px-5 py-4 text-white placeholder-white/40 focus:outline-none focus:border-cyan transition-colors"
                 value={formData.name}
@@ -80,6 +97,7 @@ export const Contact = () => {
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
                 className="flex-1 bg-transparent border border-white/20 rounded-xl px-5 py-4 text-white placeholder-white/40 focus:outline-none focus:border-cyan transition-colors"
                 value={formData.email}
@@ -89,6 +107,7 @@ export const Contact = () => {
             </div>
             <input
               type="text"
+              name="company"
               placeholder="Company / Role (Optional)"
               className="w-full bg-transparent border border-white/20 rounded-xl px-5 py-4 text-white placeholder-white/40 focus:outline-none focus:border-cyan transition-colors"
               value={formData.company}
@@ -96,6 +115,7 @@ export const Contact = () => {
             />
             <div className="relative">
               <textarea
+                name="message"
                 placeholder="Message"
                 rows={6}
                 className="w-full bg-transparent border border-white/20 rounded-xl px-5 py-4 text-white placeholder-white/40 focus:outline-none focus:border-cyan transition-colors resize-none"
