@@ -30,7 +30,7 @@ export const FreelanceCTA = () => {
               I’m currently active as an independent freelancer, taking on selected AI, software, automation, developer-tool and product-engineering work.
             </p>
             <Button 
-              href="#contact" 
+              href="mailto:shelaraayush535@gmail.com" 
               className="bg-white text-blue border border-ink shadow-[4px_4px_0_var(--ink)] hover:bg-white text-[15px] px-8 py-4"
             >
               Start a conversation ↗

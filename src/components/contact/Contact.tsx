@@ -130,16 +130,40 @@ export const Contact = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto w-full mt-24 flex justify-between items-center border-t border-white/10 pt-8">
-        <div className="font-mono text-xs text-white/40 tracking-widest">
-          © {new Date().getFullYear()} Aayush Shelar.
+      <div className="max-w-6xl mx-auto w-full mt-24 border-t border-white/10 pt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div className="flex flex-col gap-2">
+            <span className="font-mono text-[11px] text-white/40 tracking-widest uppercase">Email</span>
+            <a href="mailto:shelaraayush535@gmail.com" className="text-white hover:text-cyan transition-colors text-sm font-medium">shelaraayush535@gmail.com</a>
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="font-mono text-[11px] text-white/40 tracking-widest uppercase">Phone</span>
+            <a href="tel:+919175227454" className="text-white hover:text-cyan transition-colors text-sm font-medium">+91 91752 27454</a>
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="font-mono text-[11px] text-white/40 tracking-widest uppercase">Social</span>
+            <div className="flex gap-4">
+              <a href="https://github.com/Aayush-pixel29" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan transition-colors text-sm font-medium">GitHub</a>
+              <a href="https://www.linkedin.com/in/aayush-shelar-166b99249/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan transition-colors text-sm font-medium">LinkedIn</a>
+            </div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="font-mono text-[11px] text-white/40 tracking-widest uppercase">Location</span>
+            <span className="text-white/80 text-sm font-medium">Mumbai, Maharashtra, India</span>
+          </div>
         </div>
-        <button 
-          onClick={scrollToTop}
-          className="font-mono text-[11px] text-cyan tracking-widest hover:text-white transition-colors flex items-center gap-2"
-        >
-          {"// BACK TO TOP"}
-        </button>
+
+        <div className="flex justify-between items-center">
+          <div className="font-mono text-xs text-white/40 tracking-widest">
+            © {new Date().getFullYear()} Aayush Shelar.
+          </div>
+          <button 
+            onClick={scrollToTop}
+            className="font-mono text-[11px] text-cyan tracking-widest hover:text-white transition-colors flex items-center gap-2"
+          >
+            {"// BACK TO TOP"}
+          </button>
+        </div>
       </div>
     </section>
   );

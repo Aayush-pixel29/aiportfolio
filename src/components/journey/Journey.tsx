@@ -8,26 +8,30 @@ const timeline = [
   {
     period: "2022 — 2026",
     title: "Electronics & Computer Engineering",
-    description: "B.Tech at Sharad Institute of Technology College of Engineering.",
-    areas: ["Embedded Systems", "Industrial Automation", "Data Structures", "Operating Systems", "Computer Networks", "DBMS"]
+    description: "Hardware fundamentals: Electronics → Embedded → Programming.",
+    areas: ["Embedded Systems", "Industrial Automation", "Data Structures"],
+    relatedProjects: []
   },
   {
     period: "2024 — 2025",
     title: "Software + ML → complete products",
-    description: "Progression into:",
-    areas: ["Python", "ML", "Computer Vision", "AI assistants", "Web applications", "Automation", "Next.js"]
+    description: "Building the foundation: Software → ML → AI.",
+    areas: ["Python", "ML", "Computer Vision", "AI assistants"],
+    relatedProjects: ["IndicDoc-VQA", "Edge Chest X-Ray Triage", "AI Traffic Flow Analyzer"]
   },
   {
     period: "2025 — 2026",
     title: "Industrial engineering + AI engineering",
-    description: "Industry experience at:",
-    areas: ["SEDEMAC", "Cognifyz", "Rapid System"]
+    description: "Production and scaling: Agents → DevTools.",
+    areas: ["SEDEMAC", "Cognifyz", "Rapid System"],
+    relatedProjects: ["SRE Triage", "Aura", "SENTINEL", "Interview Agent"]
   },
   {
     period: "NOW",
     title: "Independent Freelancer / AI & Software Builder",
-    description: "Current focus:",
-    areas: ["AI applications", "Agentic systems", "Developer tools", "Full-stack products", "Automation", "Client systems"]
+    description: "Current focus: Product Engineering → Freelancer.",
+    areas: ["AI applications", "Agentic systems", "Developer tools"],
+    relatedProjects: ["Permanent QR", "Passion Protocol"]
   }
 ];
 
@@ -50,10 +54,10 @@ export const Journey = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="relative"
+            className="relative group"
           >
             {/* Timeline node */}
-            <div className="absolute -left-[32px] md:-left-[48px] top-1 w-5 h-5 rounded-full bg-mint border-[3px] border-ink shadow-[2px_2px_0_var(--ink)]" />
+            <div className="absolute -left-[32px] md:-left-[48px] top-1 w-5 h-5 rounded-full bg-mint border-[3px] border-ink shadow-[2px_2px_0_var(--ink)] group-hover:scale-125 group-hover:bg-blue transition-all" />
             
             <div className="mb-2 text-blue font-mono text-[13px] font-bold tracking-widest uppercase">
               {item.period}
@@ -67,13 +71,24 @@ export const Journey = () => {
               {item.description}
             </p>
             
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 mb-6">
               {item.areas.map(area => (
                 <span key={area} className="px-3 py-1.5 rounded-[8px] bg-paper border border-ink shadow-[2px_2px_0_var(--ink)] text-xs font-bold text-ink">
                   {area}
                 </span>
               ))}
             </div>
+
+            {item.relatedProjects.length > 0 && (
+              <div className="flex flex-wrap items-center gap-2 mt-4 p-4 bg-bg border border-ink/20 rounded-[12px] opacity-70 group-hover:opacity-100 group-hover:border-blue transition-all">
+                <span className="text-xs font-mono font-bold text-ink/50 uppercase tracking-widest">Evidence:</span>
+                {item.relatedProjects.map((project, pIndex) => (
+                  <span key={project} className="text-sm font-bold text-ink group-hover:text-blue transition-colors">
+                    {project}{pIndex < item.relatedProjects.length - 1 ? <span className="text-ink/30 font-normal mx-1">/</span> : ""}
+                  </span>
+                ))}
+              </div>
+            )}
           </motion.div>
         ))}
       </div>
