@@ -4,38 +4,40 @@
 
 @layer base {
   :root {
-    --bg: #0B0D10;
-    --surface: #13161B;
-    --border: rgba(255, 255, 255, 0.08);
-    --text: #E8E9EC;
-    --text-dim: #8A8F98;
-    --signal-amber: #FF6B3D;
-    --signal-cyan: #4FD1FF;
+    --background: #F4F1FF;
+    --paper: #FFFDF8;
+    --ink: #15162B;
+    --electric: #3457FF;
+    --violet: #8B6DFF;
+    --coral: #FF665D;
+    --mint: #BAFFB2;
+    --cyan: #9BEAFF;
+    --dark: #17192F;
   }
   
   body {
-    background-color: var(--bg);
-    color: var(--text);
+    background-color: var(--background);
+    color: var(--ink);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer components {
-  .signal-card {
-    @apply bg-surface border border-border rounded-xl p-6 md:p-8 transition-colors duration-300;
+  /* Minimal scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
   }
-
-  .btn-primary {
-    @apply bg-signal-amber text-white px-6 py-3 rounded-xl font-medium hover:bg-opacity-90 transition-all active:scale-95 text-sm uppercase tracking-wider;
+  ::-webkit-scrollbar-track {
+    background: transparent;
   }
-  
-  .btn-outline {
-    @apply bg-transparent text-text px-6 py-3 rounded-xl font-medium border border-border hover:border-signal-cyan hover:text-signal-cyan transition-all active:scale-95 text-sm uppercase tracking-wider;
+  ::-webkit-scrollbar-thumb {
+    background: rgba(21, 22, 43, 0.1);
+    border-radius: 10px;
   }
-
-  .tech-tag {
-    @apply bg-white/5 border border-white/10 rounded px-2 py-1 text-xs font-mono text-text-dim;
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(21, 22, 43, 0.2);
   }
 }
 

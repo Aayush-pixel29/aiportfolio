@@ -9,22 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--bg)",
-        surface: "var(--surface)",
-        border: "var(--border)",
-        text: {
-          DEFAULT: "var(--text)",
-          dim: "var(--text-dim)",
-        },
-        signal: {
-          amber: "var(--signal-amber)",
-          cyan: "var(--signal-cyan)",
-        }
+        background: "var(--background)",
+        paper: "var(--paper)",
+        ink: "var(--ink)",
+        electric: "var(--electric)",
+        violet: "var(--violet)",
+        coral: "var(--coral)",
+        mint: "var(--mint)",
+        cyan: "var(--cyan)",
+        dark: "var(--dark)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
         display: ["var(--font-space-grotesk)", "sans-serif"],
-        mono: ["var(--font-ibm-plex-mono)", "monospace"],
+        mono: ["var(--font-dm-mono)", "monospace"],
       },
     },
   },
