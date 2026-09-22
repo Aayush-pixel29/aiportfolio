@@ -29,6 +29,7 @@ export const Contact = () => {
         alert("Oops! There was a problem submitting your form");
       }
     } catch (error) {
+      console.error("Form submission error:", error);
       alert("Oops! There was a problem submitting your form");
     }
   };
