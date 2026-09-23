@@ -1,22 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, DM_Mono } from "next/font/google";
-import { Providers } from "@/components/Providers";
+import { Kanit } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ 
-  subsets: ["latin"], 
-  variable: "--font-inter" 
-});
-
-const spaceGrotesk = Space_Grotesk({ 
-  subsets: ["latin"], 
-  variable: "--font-space-grotesk" 
-});
-
-const dmMono = DM_Mono({ 
-  weight: "400", 
-  subsets: ["latin"], 
-  variable: "--font-dm-mono" 
+const kanit = Kanit({
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  style: ['normal', 'italic'],
+  subsets: ["latin"],
+  variable: "--font-kanit"
 });
 
 export const metadata: Metadata = {
@@ -51,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth bg-[#0C0C0C]">
       <head>
         <script
           type="application/ld+json"
@@ -70,12 +60,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} ${dmMono.variable} font-sans bg-bg text-ink antialiased min-h-screen relative selection:bg-blue selection:text-white`}>
-        <Providers>
-          <main className="w-full min-h-screen relative z-10 flex flex-col">
-            {children}
-          </main>
-        </Providers>
+      <body className={`${kanit.variable} font-['Kanit',sans-serif] bg-[#0C0C0C] text-[#D7E2EA] antialiased min-h-screen relative selection:bg-[#B600A8]/30 selection:text-white`} style={{ overflowX: 'clip' }}>
+        {children}
       </body>
     </html>
   );
