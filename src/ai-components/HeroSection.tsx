@@ -389,29 +389,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
       {/* ========================================================================= */}
       {/* 3. MOBILE HERO VIEW (Dedicated mobile flow for < md) */}
       {/* ========================================================================= */}
-      <div className="flex md:hidden flex-col items-center justify-between min-h-[calc(100dvh-75px)] px-5 pt-4 pb-8 relative z-10 text-center">
+      <div className="flex md:hidden flex-col items-center justify-between min-h-[calc(100svh-70px)] px-4 xs:px-5 pt-2 pb-6 relative z-10 text-center">
         {/* Top: Availability Badge */}
         <FadeIn delay={0.1} y={15}>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/15 text-[11px] font-medium uppercase tracking-wider text-white shadow-lg mb-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/15 text-[10px] xs:text-[11px] font-medium uppercase tracking-wider text-white shadow-lg my-1">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
             <span>Available · AI/ML &amp; Software Roles</span>
           </div>
         </FadeIn>
 
         {/* Hero Title */}
         <FadeIn delay={0.15} y={20}>
-          <h1 className="hero-heading font-black uppercase tracking-tight leading-none text-center text-[12vw] xs:text-[13vw] sm:text-6xl my-1">
+          <h1 className="hero-heading font-black uppercase tracking-tight leading-none text-center text-[13vw] xs:text-[12vw] sm:text-6xl my-1">
             Hi, i&apos;m Aayush
           </h1>
         </FadeIn>
 
-        {/* Centered 3D Avatar (properly sized, no overlaps) */}
-        <FadeIn delay={0.25} y={20} className="w-full flex justify-center my-2">
-          <div className="relative w-[210px] xs:w-[240px] sm:w-[280px] max-w-[70vw]">
+        {/* Centered 3D Avatar (Optimized for all phone heights) */}
+        <FadeIn delay={0.25} y={20} className="w-full flex justify-center my-1">
+          <div className="relative w-[180px] xs:w-[220px] sm:w-[260px] max-h-[38vh] flex items-center justify-center">
             <img
               src={avatarSrc}
               alt="Aayush Shelar 3D Animated Character Avatar"
-              className="w-full h-auto object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)] select-none"
+              className="w-full h-auto max-h-[36vh] object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.9)] select-none"
               draggable={false}
               onError={(e) => {
                 (e.target as HTMLImageElement).src = '/images/avatar-main.webp';
@@ -421,26 +421,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
         </FadeIn>
 
         {/* Bio statement & Location */}
-        <FadeIn delay={0.35} y={20} className="w-full max-w-sm space-y-2.5">
-          <p className="text-xs xs:text-sm text-white font-semibold uppercase tracking-wide leading-snug px-2">
+        <FadeIn delay={0.35} y={20} className="w-full max-w-sm space-y-2">
+          <p className="text-xs xs:text-sm text-white font-semibold uppercase tracking-wide leading-snug px-1">
             AI Engineer building production-ready AI systems, agents &amp; intelligent products.
           </p>
-          <p className="text-[11px] text-[#D7E2EA]/70 font-light leading-relaxed px-2">
+          <p className="text-[11px] xs:text-xs text-[#D7E2EA]/70 font-light leading-relaxed px-1">
             Agentic workflows, vision pipelines, developer tools &amp; full-stack systems.
           </p>
 
-          <div className="flex items-center justify-center gap-4 text-xs text-[#BBCCD7] pt-1">
-            <span className="flex items-center gap-1 text-[11px] font-medium tracking-wider">
+          <div className="flex items-center justify-center gap-3 text-xs text-[#BBCCD7] pt-0.5">
+            <span className="flex items-center gap-1 text-[10px] xs:text-[11px] font-medium tracking-wider">
               <MapPin className="w-3.5 h-3.5 text-[#B600A8]" />
               Mumbai, India
             </span>
+
+            <span className="text-white/20">|</span>
 
             <div className="flex items-center gap-2">
               <a
                 href={PROFILE.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-1.5 rounded-full bg-white/10 text-white"
+                className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
                 aria-label="GitHub profile"
               >
                 <Github className="w-3.5 h-3.5" />
@@ -449,7 +451,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
                 href={PROFILE.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-1.5 rounded-full bg-white/10 text-white"
+                className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
                 aria-label="LinkedIn profile"
               >
                 <Linkedin className="w-3.5 h-3.5" />
@@ -459,12 +461,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
         </FadeIn>
 
         {/* Bottom CTAs */}
-        <FadeIn delay={0.45} y={20} className="w-full max-w-xs pt-3">
-          <div className="flex items-center gap-2 w-full justify-center">
+        <FadeIn delay={0.45} y={20} className="w-full max-w-sm pt-2">
+          <div className="grid grid-cols-3 gap-2 w-full">
             <button
               type="button"
               onClick={() => onNavigate('work')}
-              className="flex-1 py-3 px-2.5 rounded-full border border-white/20 bg-white/5 text-white font-semibold uppercase tracking-wider text-xs transition-all active:scale-95"
+              className="py-2.5 px-2 rounded-full border border-white/20 bg-white/5 active:bg-white/15 text-white font-semibold uppercase tracking-wider text-[11px] xs:text-xs transition-all active:scale-95 flex items-center justify-center"
             >
               Work
             </button>
@@ -472,17 +474,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
               href={PROFILE.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 inline-flex items-center justify-center gap-1 py-3 px-2.5 rounded-full border border-white/20 bg-white/5 text-white font-semibold uppercase tracking-wider text-xs transition-all active:scale-95"
+              className="inline-flex items-center justify-center gap-1 py-2.5 px-2 rounded-full border border-white/20 bg-white/5 active:bg-white/15 text-white font-semibold uppercase tracking-wider text-[11px] xs:text-xs transition-all active:scale-95"
               title="Download Resume PDF"
             >
-              <FileText className="w-3.5 h-3.5 text-cyan-400" />
+              <FileText className="w-3 h-3 text-cyan-400" />
               <span>Resume</span>
             </a>
-            <div className="flex-1">
-              <ContactButton onClick={onOpenContact} label="Contact" />
-            </div>
+            <button
+              type="button"
+              onClick={onOpenContact}
+              className="py-2.5 px-2 rounded-full font-bold uppercase tracking-wider text-[11px] xs:text-xs text-white shadow-lg active:scale-95 transition-transform"
+              style={{
+                background:
+                  'linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)',
+              }}
+            >
+              Contact
+            </button>
           </div>
-          <span className="text-[10px] uppercase tracking-widest text-[#BBCCD7]/60 block mt-2">
+          <span className="text-[9px] xs:text-[10px] uppercase tracking-widest text-[#BBCCD7]/60 block mt-2 font-mono">
             Available for AI/ML &amp; Software Roles
           </span>
         </FadeIn>

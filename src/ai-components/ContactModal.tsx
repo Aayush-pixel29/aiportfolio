@@ -39,12 +39,25 @@ export const ContactModal: React.FC<ContactModalProps> = ({
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => { e.preventDefault(); try { await fetch("https://formspree.io/f/xlgqrkel", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(formData) }); setSubmitted(true); } catch (err) { console.error("Formspree error", err); setSubmitted(true); } };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await fetch("https://formspree.io/f/xlgqrkel", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Formspree error", err);
+      setSubmitted(true);
+    }
+  };
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 xs:p-4 sm:p-6 overflow-y-auto">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -60,35 +73,35 @@ export const ContactModal: React.FC<ContactModalProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 25 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-3xl rounded-[32px] sm:rounded-[44px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-6 sm:p-10 shadow-2xl z-10 my-8 text-[#D7E2EA]"
+            className="relative w-full max-w-3xl rounded-[24px] sm:rounded-[44px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-4 sm:p-10 shadow-2xl z-10 my-4 text-[#D7E2EA] max-h-[94vh] overflow-y-auto"
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-5 right-5 sm:top-7 sm:right-7 p-2 rounded-full text-[#D7E2EA]/70 hover:text-white hover:bg-white/10 transition-colors"
+              className="absolute top-3 right-3 sm:top-6 sm:right-6 p-2 rounded-full text-[#D7E2EA]/70 hover:text-white hover:bg-white/10 transition-colors z-20 cursor-pointer"
               aria-label="Close modal"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
             {/* Header */}
-            <div className="mb-8">
-              <span className="text-xs uppercase tracking-widest text-[#BBCCD7] font-semibold block mb-2">
+            <div className="mb-6 sm:mb-8 pr-6 sm:pr-0">
+              <span className="text-[10px] sm:text-xs uppercase tracking-widest text-[#BBCCD7] font-semibold block mb-1 sm:mb-2">
                 Initiate Project / Commission
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
+              <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-white leading-tight">
                 Let&apos;s Build Something Resilient
               </h2>
-              <p className="text-sm text-[#D7E2EA]/70 mt-1 max-w-xl font-light">
+              <p className="text-xs sm:text-sm text-[#D7E2EA]/70 mt-1 max-w-xl font-light leading-relaxed">
                 Open to selected freelance client systems, AI engineering roles, and production product builds.
               </p>
             </div>
 
             {/* Quick Contact Chips */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mb-6 sm:mb-8">
               {/* Email Chip */}
-              <div className="flex items-center justify-between p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-all">
-                <div className="flex items-center gap-3 overflow-hidden">
+              <div className="flex items-center justify-between p-3 sm:p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-all">
+                <div className="flex items-center gap-2.5 sm:gap-3 overflow-hidden">
                   <Mail className="w-4 h-4 text-[#B600A8] shrink-0" />
                   <a
                     href={`mailto:${PROFILE.email}`}
@@ -112,8 +125,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               </div>
 
               {/* Phone Chip */}
-              <div className="flex items-center justify-between p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-all">
-                <div className="flex items-center gap-3">
+              <div className="flex items-center justify-between p-3 sm:p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-all">
+                <div className="flex items-center gap-2.5 sm:gap-3">
                   <Phone className="w-4 h-4 text-[#7621B0] shrink-0" />
                   <a
                     href={`tel:${PROFILE.phone.replace(/\s+/g, '')}`}
@@ -138,28 +151,28 @@ export const ContactModal: React.FC<ContactModalProps> = ({
             </div>
 
             {submitted ? (
-              <div className="py-12 text-center rounded-2xl bg-white/5 border border-white/10">
+              <div className="py-10 sm:py-12 text-center rounded-2xl bg-white/5 border border-white/10 px-4">
                 <div className="w-12 h-12 rounded-full bg-emerald-400/20 text-emerald-400 flex items-center justify-center mx-auto mb-4">
                   <Check className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold uppercase text-white mb-2">Message Dispatched!</h3>
-                <p className="text-sm text-[#D7E2EA]/80 max-w-md mx-auto font-light">
+                <h3 className="text-lg sm:text-xl font-bold uppercase text-white mb-2">Message Dispatched!</h3>
+                <p className="text-xs sm:text-sm text-[#D7E2EA]/80 max-w-md mx-auto font-light leading-relaxed">
                   Thanks for reaching out! Aayush will get back to your email at{' '}
                   <span className="text-white font-medium">{formData.email || 'your inbox'}</span> shortly.
                 </p>
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="mt-6 text-xs uppercase tracking-wider text-[#BBCCD7] hover:text-white underline underline-offset-4"
+                  className="mt-6 text-xs uppercase tracking-wider text-[#BBCCD7] hover:text-white underline underline-offset-4 cursor-pointer"
                 >
                   Send another inquiry
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
-                    <label className="text-xs uppercase tracking-wider text-[#D7E2EA]/70 block mb-1">
+                    <label className="text-[11px] sm:text-xs uppercase tracking-wider text-[#D7E2EA]/70 block mb-1">
                       Your Name
                     </label>
                     <input
@@ -168,12 +181,12 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                       placeholder="Jane Doe"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-white/40 text-sm"
+                      className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-white/40 text-xs sm:text-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="text-xs uppercase tracking-wider text-[#D7E2EA]/70 block mb-1">
+                    <label className="text-[11px] sm:text-xs uppercase tracking-wider text-[#D7E2EA]/70 block mb-1">
                       Email Address
                     </label>
                     <input
@@ -182,20 +195,20 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                       placeholder="jane@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-white/40 text-sm"
+                      className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-white/40 text-xs sm:text-sm"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
-                    <label className="text-xs uppercase tracking-wider text-[#D7E2EA]/70 block mb-1">
+                    <label className="text-[11px] sm:text-xs uppercase tracking-wider text-[#D7E2EA]/70 block mb-1">
                       Target Area
                     </label>
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-2xl bg-[#161616] border border-white/10 text-white focus:outline-none focus:border-white/40 text-sm"
+                      className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl bg-[#161616] border border-white/10 text-white focus:outline-none focus:border-white/40 text-xs sm:text-sm"
                     >
                       <option value="AI & Agentic Systems">AI &amp; Agentic Systems</option>
                       <option value="Full-Stack Web Products">Full-Stack Web Products</option>
@@ -207,13 +220,13 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   </div>
 
                   <div>
-                    <label className="text-xs uppercase tracking-wider text-[#D7E2EA]/70 block mb-1">
+                    <label className="text-[11px] sm:text-xs uppercase tracking-wider text-[#D7E2EA]/70 block mb-1">
                       Estimated Scope / Budget
                     </label>
                     <select
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full px-4 py-3 rounded-2xl bg-[#161616] border border-white/10 text-white focus:outline-none focus:border-white/40 text-sm"
+                      className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl bg-[#161616] border border-white/10 text-white focus:outline-none focus:border-white/40 text-xs sm:text-sm"
                     >
                       <option value="< $3k">&lt; $3k (Prototype / MVP)</option>
                       <option value="$3k – $10k">$3k – $10k (Production System)</option>
@@ -224,22 +237,22 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="text-xs uppercase tracking-wider text-[#D7E2EA]/70 block mb-1">
+                  <label className="text-[11px] sm:text-xs uppercase tracking-wider text-[#D7E2EA]/70 block mb-1">
                     Project Details / Goals
                   </label>
                   <textarea
-                    rows={4}
+                    rows={3}
                     required
                     placeholder="Describe what you want to build, the technical constraints, or timelines..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-white/40 text-sm resize-none"
+                    className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-white/40 text-xs sm:text-sm resize-none"
                   />
                 </div>
 
                 {/* Submit button */}
-                <div className="pt-2 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 order-2 sm:order-1">
                     <a
                       href={PROFILE.githubUrl}
                       target="_blank"
@@ -262,7 +275,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
 
                   <button
                     type="submit"
-                    className="flex items-center gap-2 px-8 py-3.5 rounded-full uppercase tracking-widest text-xs font-semibold text-white shadow-lg transition-transform hover:scale-105"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 rounded-full uppercase tracking-widest text-xs font-semibold text-white shadow-lg transition-transform active:scale-95 cursor-pointer order-1 sm:order-2"
                     style={{
                       background:
                         'linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)',
