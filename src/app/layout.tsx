@@ -11,26 +11,43 @@ const kanit = Kanit({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aiportfolio-kappa.vercel.app"),
-  title: "Aayush Shelar — Software Engineer · AI Builder",
-  description: "Software engineer and AI builder building AI systems, full-stack products, developer tools and intelligent applications.",
+  title: "Aayush Shelar — AI Engineer | Agentic Systems · Computer Vision · Full-Stack",
+  description: "AI Engineer building agentic AI systems, computer vision applications, developer tools, and full-stack products — from architecture to deployment. Based in Mumbai, India.",
+  keywords: [
+    "AI Engineer",
+    "Machine Learning Engineer",
+    "Agentic AI",
+    "Multi-Agent Systems",
+    "Computer Vision",
+    "Full Stack AI",
+    "PyTorch",
+    "LangGraph",
+    "Next.js",
+    "FastAPI",
+    "Aayush Shelar",
+    "Portfolio"
+  ],
+  authors: [{ name: "Aayush Shelar", url: "https://aiportfolio-kappa.vercel.app" }],
+  creator: "Aayush Shelar",
   openGraph: {
-    title: "Aayush Shelar — Software Engineer · AI Builder",
-    description: "Software engineer and AI builder building AI systems, full-stack products, developer tools and intelligent applications.",
+    title: "Aayush Shelar — AI Engineer | Agentic Systems · Computer Vision · Full-Stack",
+    description: "AI Engineer building agentic AI systems, computer vision applications, developer tools, and full-stack products — from architecture to deployment.",
     type: "website",
     url: "https://aiportfolio-kappa.vercel.app",
+    siteName: "Aayush Shelar Portfolio",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Aayush Shelar - Software Engineer & AI Builder",
+        alt: "Aayush Shelar - AI Engineer | Agentic Systems · Computer Vision · Full-Stack",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aayush Shelar — Software Engineer · AI Builder",
-    description: "Software engineer and AI builder building AI systems, full-stack products, developer tools and intelligent applications.",
+    title: "Aayush Shelar — AI Engineer | Agentic Systems · Computer Vision · Full-Stack",
+    description: "AI Engineer building agentic AI systems, computer vision applications, developer tools, and full-stack products — from architecture to deployment.",
     images: ["/opengraph-image.png"],
   }
 };
@@ -50,11 +67,22 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Aayush Shelar",
-              "jobTitle": "Software Engineer / AI Builder",
+              "jobTitle": "AI Engineer / AI & Software Builder",
               "url": "https://aiportfolio-kappa.vercel.app/",
               "sameAs": [
                 "https://github.com/Aayush-pixel29",
                 "https://www.linkedin.com/in/aayush-shelar-166b99249/"
+              ],
+              "knowsAbout": [
+                "Agentic AI",
+                "Computer Vision",
+                "Multi-Agent Systems",
+                "Machine Learning",
+                "Full Stack Web Development",
+                "PyTorch",
+                "LangGraph",
+                "FastAPI",
+                "Next.js"
               ]
             })
           }}

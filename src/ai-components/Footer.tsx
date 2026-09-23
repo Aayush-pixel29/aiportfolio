@@ -21,45 +21,55 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, onNavigate }) => 
       <div className="max-w-6xl mx-auto mb-20 bg-[#111111] border border-white/10 rounded-[2rem] p-8 md:p-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 shadow-2xl relative overflow-hidden">
         
         {/* Subtle glow background */}
-        <div className="absolute top-0 right-0 w-full lg:w-[600px] h-[600px] bg-gradient-to-br from-[#7621B0]/10 to-[#B600A8]/10 blur-3xl pointer-events-none rounded-full translate-x-1/4 -translate-y-1/4" />
+        <div className="absolute top-0 right-0 w-full lg:w-[600px] h-[600px] bg-gradient-to-br from-[#7621B0]/15 to-[#B600A8]/15 blur-3xl pointer-events-none rounded-full translate-x-1/4 -translate-y-1/4" />
 
         <div className="flex-1 relative z-10">
           <div className="flex items-center gap-2 mb-4">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-xs uppercase tracking-widest text-[#BBCCD7] font-semibold">
-              Available For Selected Projects &amp; Roles
+            <span className="text-xs uppercase tracking-widest text-emerald-400 font-bold">
+              Available For AI/ML Engineering &amp; High-Impact Roles
             </span>
           </div>
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-[1.1] mb-5 max-w-3xl">
-            Need someone who can go from architecture to working software?
+            Have an AI product to build or a role to fill?
           </h2>
           
-          <p className="text-sm md:text-base font-light text-[#D7E2EA]/70 max-w-2xl leading-relaxed">
-            I&apos;m currently active building agentic systems, developer tools, computer vision pipelines, and full-stack web applications.
+          <p className="text-sm md:text-base font-light text-[#D7E2EA]/80 max-w-2xl leading-relaxed">
+            From architecture → prototype → deployment. I design agentic AI systems, computer vision pipelines, developer tools, and high-performance full-stack applications.
           </p>
         </div>
 
-        <div className="relative z-10 shrink-0 w-full lg:w-auto flex flex-col sm:flex-row items-center gap-3 justify-start lg:justify-end">
+        <div className="relative z-10 shrink-0 w-full lg:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3 justify-start lg:justify-end">
+          <button
+            onClick={onOpenContact}
+            className="group relative px-7 py-4 rounded-full font-bold uppercase tracking-widest text-xs sm:text-sm text-white overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg cursor-pointer flex items-center justify-center gap-2"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-[#7621B0] to-[#B600A8] opacity-90 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 rounded-full border border-white/30" />
+            <span className="relative z-10 drop-shadow-md">Start a Conversation</span>
+          </button>
+
           <a
             href={PROFILE.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-6 py-4 rounded-full border border-white/25 bg-white/5 hover:bg-white/15 text-white font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-md"
+            className="px-5 py-4 rounded-full border border-white/25 bg-white/5 hover:bg-white/15 text-white font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-md"
           >
             <FileText className="w-4 h-4 text-cyan-400" />
             <span>Resume (PDF)</span>
             <Download className="w-3.5 h-3.5 opacity-60" />
           </a>
 
-          <button
-            onClick={onOpenContact}
-            className="group relative px-8 py-4 w-full sm:w-auto rounded-full font-bold uppercase tracking-widest text-sm text-white overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg cursor-pointer"
+          <a
+            href={PROFILE.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-4 rounded-full border border-white/20 bg-white/5 hover:bg-white/15 text-[#BBCCD7] hover:text-white font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-md"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-[#7621B0] to-[#B600A8] opacity-80 group-hover:opacity-100 transition-opacity" />
-            <div className="absolute inset-0 rounded-full border border-white/30" />
-            <span className="relative z-10 drop-shadow-md">Start a conversation</span>
-          </button>
+            <Github className="w-4 h-4" />
+            <span>GitHub</span>
+          </a>
         </div>
       </div>
 
@@ -67,7 +77,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, onNavigate }) => 
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-10">
         <div>
           <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white">
-            AAYUSH SHELAR <span className="text-white/40">—</span> AI BUILDER
+            AAYUSH SHELAR <span className="text-white/40">—</span> AI ENGINEER
           </h2>
 
           <div className="mt-5 flex flex-wrap items-center gap-4 text-xs text-[#BBCCD7]">

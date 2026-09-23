@@ -8,6 +8,7 @@ export interface ExperienceItem {
 
 export interface SkillCategory {
   title: string;
+  verificationBadge?: string;
   skills: string[];
   evidence: string[];
 }
@@ -31,8 +32,11 @@ export interface EducationInfo {
 export const PROFILE = {
   name: 'Aayush Shelar',
   handle: 'Aayush-pixel29',
-  title: 'Software Engineer · AI Builder',
-  status: 'Available · Independent Freelancer',
+  title: 'AI Engineer · Systems Builder',
+  roleHeadline: 'AI Engineer building production-ready AI systems, agents & intelligent products.',
+  roleSubheadline:
+    'I build agentic systems, computer-vision pipelines, developer tools and full-stack AI products — from architecture to deployment.',
+  status: 'Available · AI/ML & Software Roles',
   location: 'Mumbai, Maharashtra, India',
   email: 'shelaraayush535@gmail.com',
   phone: '+91 91752 27454',
@@ -40,9 +44,9 @@ export const PROFILE = {
   linkedinUrl: 'https://www.linkedin.com/in/aayush-shelar-166b99249/',
   resumeUrl: '/resume.pdf',
   bioShort:
-    'A software and AI builder who turns ideas into working products. Specializing in AI agents, edge systems, full-stack architectures, and computer vision.',
+    'AI Engineer building production-ready AI systems, agents & intelligent products. Specializing in multi-agent swarms, edge computer vision, and full-stack AI applications.',
   bioLong:
-    'A hybrid engineer with a software-first direction. With extensive experience across electronics, embedded systems, machine learning, and modern web architectures, I engineer end-to-end resilient systems—from hardware interfaces to production multi-agent AI swarms.',
+    'AI Engineer specializing in agentic systems, computer-vision pipelines, developer tools, and full-stack AI products. With a rigorous engineering foundation spanning hardware fundamentals, machine learning, and modern web architectures, I engineer end-to-end resilient systems — from local edge models to production multi-agent swarms.',
   
   education: {
     degree: 'B.Tech, Electronics and Computer Engineering',
@@ -57,127 +61,125 @@ export const PROFILE = {
 
   metrics: [
     { label: 'Students Impacted', value: '1,500+', subtext: 'via technical training & university developer events' },
-    { label: 'Flagship Projects', value: '10', subtext: 'engineered across AI, edge, vision & full-stack' },
-    { label: 'Engineering Roles', value: '4+', subtext: 'industrial support, machine learning & hardware' },
-    { label: 'Current Focus', value: '2026', subtext: 'independent freelance & production AI agents' },
+    { label: 'Engineered Systems', value: '10', subtext: '4 Featured Flagships + 6 Specialized Domain Systems' },
+    { label: 'Internships & Work', value: '3+', subtext: '3 Engineering Internships + Independent Product Work' },
+    { label: 'Current Focus', value: '2026', subtext: 'Agentic AI, Edge Inference & Production Systems' },
   ],
 
   journey: [
     {
-      period: '2022 — 2026',
-      title: 'Electronics & Computer Engineering',
+      period: '2022',
+      title: 'Electronics & Embedded Hardware',
       description:
-        'Hardware fundamentals: Electronics → Embedded → Programming. Deep focus on microcontroller architecture, RTOS, sensor integration, and data structures.',
-      tags: ['Embedded Systems', 'Industrial Automation', 'Data Structures', 'C/C++'],
+        'Hardware fundamentals: Microcontroller architecture, RTOS, sensor interfacing, and C/C++ data structures. Built low-level firmware foundations.',
+      tags: ['Embedded Systems', 'Microcontrollers', 'C/C++', 'RTOS'],
     },
     {
-      period: '2024 — 2025',
-      title: 'Software + ML → Complete Products',
+      period: '2024',
+      title: 'Python, ML & Computer Vision Pipelines',
       description:
-        'Building the foundation: Software → Machine Learning → AI. Deploying localized vision models, INT8 edge inference pipelines, and computer vision trackers.',
-      tags: ['Python', 'Machine Learning', 'Computer Vision', 'Edge AI'],
+        'Machine learning & deep vision: Deployed real-time YOLOv8 vehicle tracking, INT8 quantized edge models, and predictive ML classification pipelines.',
+      tags: ['Python', 'YOLOv8', 'OpenCV', 'TFLite INT8', 'PyTorch'],
       evidence: ['IndicDoc-VQA', 'Edge Chest X-Ray Triage', 'AI Traffic Flow Analyzer'],
     },
     {
-      period: '2025 — 2026',
-      title: 'Industrial Engineering + AI Engineering',
+      period: '2025',
+      title: 'AI Engineering, RAG & Full-Stack Systems',
       description:
-        'Production and scaling: Multi-agent systems, developer tools, hardware-in-the-loop validation at SEDEMAC Mechatronics and Cognifyz Technologies.',
-      tags: ['Multi-Agent Swarms', 'Developer Tools', 'HIL Validation', 'RAG'],
-      evidence: ['SRE Triage Swarm', 'Aura', 'SENTINEL', 'Interview Agent'],
+        'Production systems: FastAPI microservices, vector databases (Qdrant), offline-first PWAs, and industrial Hardware-in-the-Loop (HIL) validation at SEDEMAC.',
+      tags: ['FastAPI', 'Next.js', 'Vector DBs', 'HIL Testing', 'RAG'],
+      evidence: ['Recon AI', 'SENTINEL', 'Doc-Gen API', 'SEDEMAC ECU'],
     },
     {
-      period: 'NOW',
-      title: 'Independent Freelancer / AI & Software Builder',
+      period: '2026',
+      title: 'Agentic AI & Autonomous Production Systems',
       description:
-        'Current focus: Product Engineering → Freelancing. Partnering with visionary founders and engineering teams to ship production agentic software, developer tools, and client automation.',
-      tags: ['Agentic Applications', 'Developer Tools', 'Full-Stack Systems', 'Freelancer'],
-      evidence: ['Permanent QR', 'Passion Protocol'],
+        'Autonomous systems: Multi-agent triage swarms, closed-loop trajectory learning, local Vision-Language Models (Qwen2.5-VL), and independent client software.',
+      tags: ['Multi-Agent Swarms', 'LangChain', 'Local VLMs', 'Autonomous Systems'],
+      evidence: ['SRE Triage Swarm', 'SkillFoundry', 'IndicDoc-VQA', 'Client Systems'],
     },
   ],
 
   skillMap: [
     {
-      title: 'AI / Machine Learning',
+      title: 'AI & Agentic Systems',
+      verificationBadge: '4 Core Systems · RAG · Swarms',
       skills: [
         'Python',
-        'PyTorch',
-        'TensorFlow',
-        'Scikit-learn',
-        'OpenCV',
-        'MediaPipe',
-        'Transformers',
-        'LLMs',
-        'RAG',
-        'Agents',
-        'Embeddings',
-        'Computer Vision',
-        'Qdrant',
+        'LangChain',
+        'Gemini API',
+        'Qdrant Vector DB',
+        'BM25 Hybrid Search',
+        'RAG Architectures',
+        'Multi-Agent Swarms',
         'Ollama',
+        'PyTorch',
+        'Transformers',
+        'Prompt Engineering',
+        'Evaluation Rubrics',
       ],
-      evidence: ['SRE Triage', 'IndicDoc-VQA', 'Edge Chest X-Ray', 'Traffic Analyzer'],
+      evidence: ['SRE Triage Swarm', 'SkillFoundry', 'SENTINEL', 'Interview Agent'],
     },
     {
-      title: 'Software / Full-Stack',
+      title: 'Computer Vision & Edge AI',
+      verificationBadge: '3 Deployed Pipelines · INT8',
       skills: [
-        'TypeScript',
-        'JavaScript',
-        'React',
-        'Next.js',
-        'Node.js',
+        'YOLOv8',
+        'OpenCV',
+        'BoT-SORT Tracking',
+        'TensorFlow Lite INT8',
+        'Qwen2.5-VL',
+        'Grad-CAM Saliency',
+        'MediaPipe',
+        'Local CPU Inference',
+        'Quantization',
+      ],
+      evidence: ['IndicDoc-VQA', 'AI Traffic Analyzer', 'Edge Chest X-Ray'],
+    },
+    {
+      title: 'Backend, APIs & Full-Stack',
+      verificationBadge: '5 Deployed Architectures',
+      skills: [
         'FastAPI',
-        'Java',
-        'C/C++',
-        'SQL',
+        'Next.js 14/15',
+        'React',
+        'TypeScript',
+        'Node.js',
         'PostgreSQL',
-        'REST APIs',
+        'SQL',
         'Streamlit',
         'Tailwind CSS',
+        'REST API Design',
+        'Asynchronous Tasks',
       ],
-      evidence: ['SENTINEL', 'Aura', 'Permanent QR', 'Recon AI'],
+      evidence: ['Doc-Gen API', 'Recon AI', 'Passion Protocol', 'SENTINEL'],
     },
     {
-      title: 'Cloud & Developer Tools',
+      title: 'Cloud, DevTools & Hardware',
+      verificationBadge: 'CI/CD · Industrial HIL · Docker',
       skills: [
-        'Git & GitHub',
-        'Linux',
         'Docker',
-        'AWS',
-        'Google Cloud',
-        'Firebase',
-        'CI/CD',
-        'VS Code Tooling',
-        'CLI Workflows',
-        'Automated Testing',
-      ],
-      evidence: ['SRE Triage Swarm', 'SENTINEL', 'IndicDoc-VQA'],
-    },
-    {
-      title: 'Systems & Hardware',
-      skills: [
-        'ATmega',
-        'ESP8266',
-        'Raspberry Pi',
-        'Arduino',
+        'Git & GitHub Actions',
+        'Linux',
+        'Semgrep AST Rules',
+        'VS Code Extension API',
         'HIL Validation',
-        'Sensor Integration',
-        'IoT Architecture',
-        'Fault Diagnostics',
-        'Embedded Systems',
+        'ESP8266 / Arduino',
+        'Vercel & Render CI',
       ],
-      evidence: ['SEDEMAC', 'Rapid System', 'Edge Chest X-Ray'],
+      evidence: ['SENTINEL VS Code Gate', 'SEDEMAC Mechatronics', 'Recon AI PWA'],
     },
   ],
 
   experience: [
     {
       period: 'NOW',
-      role: 'Independent Freelancer / AI & Software Builder',
-      company: 'Self-Employed',
+      role: 'Independent AI Engineer & Software Builder',
+      company: 'Self-Employed / Freelance',
       highlights: [
-        'Architecting custom AI agentic workflows, multi-agent swarms, and RAG systems.',
-        'Building full-stack web products, robust developer tools, and automation pipelines.',
-        'Consulting on computer vision and edge AI deployment for resource-constrained environments.',
+        'Architecting custom AI agentic workflows, multi-agent swarms, and hybrid vector RAG systems.',
+        'Building full-stack web products, robust developer tooling, and automated LLM pipelines.',
+        'Consulting on computer vision and edge AI deployment for local/offline constraints.',
       ],
       evidence: ['Client Systems', 'Agentic Applications', 'Full-Stack Products'],
     },
@@ -187,19 +189,19 @@ export const PROFILE = {
       company: 'SEDEMAC Mechatronics',
       highlights: [
         'Hardware-in-the-loop (HIL) validation for automotive ECU controllers.',
-        'Diagnostics and anomaly analysis across high-reliability mechatronic systems.',
+        'Diagnostics, fault code analysis, and sensor anomaly tracking across mechatronic systems.',
         'Automated quality testing workflows and performance metric logging.',
       ],
-      evidence: ['Automotive ECU', 'HIL Testing', 'Quality Engineering'],
+      evidence: ['Automotive ECU Controllers', 'HIL Testing', 'Quality Engineering'],
     },
     {
       period: 'OCT — NOV 2025',
       role: 'Machine Learning Intern',
       company: 'Cognifyz Technologies',
       highlights: [
-        'Python machine learning pipeline development and data preprocessing.',
-        'Model training, hyperparameter optimization, and predictive evaluation.',
-        'Delivering analytical outputs aligned with production performance constraints.',
+        'Python machine learning pipeline development, data preprocessing, and feature engineering.',
+        'Model training, hyperparameter optimization, and predictive evaluation metrics.',
+        'Delivered clean analytical outputs aligned with production performance constraints.',
       ],
       evidence: ['Model Pipelines', 'Feature Engineering', 'Evaluation Metrics'],
     },
@@ -209,7 +211,7 @@ export const PROFILE = {
       company: 'Rapid System',
       highlights: [
         'Low-level firmware instructions on microcontrollers for industrial automation.',
-        'Interfacing peripheral sensor matrices and communication protocols.',
+        'Interfaced peripheral sensor matrices and communication protocols.',
       ],
       evidence: ['Microcontroller Firmware', 'Hardware Protocols'],
     },
@@ -234,15 +236,15 @@ export const PROFILE = {
     },
     {
       number: '02',
-      name: 'Full-Stack Web Products',
-      description:
-        'Production Next.js, React, TypeScript, FastAPI, and Node.js web applications built with ruthless speed, fluid responsive animations, and rock-solid database schemas.',
-    },
-    {
-      number: '03',
       name: 'Computer Vision & Edge AI',
       description:
         'Real-time vehicle and object tracking with YOLO/OpenCV, INT8 quantized TFLite models for edge devices, and offline bilingual Vision-Language models.',
+    },
+    {
+      number: '03',
+      name: 'Full-Stack AI Products & APIs',
+      description:
+        'Production Next.js, React, TypeScript, FastAPI, and Node.js web applications built with ruthless speed, fluid responsive animations, and rock-solid database schemas.',
     },
     {
       number: '04',
@@ -252,7 +254,7 @@ export const PROFILE = {
     },
     {
       number: '05',
-      name: 'Hardware & Embedded Software',
+      name: 'Hardware & Embedded Foundation',
       description:
         'Firmware engineering for ESP8266, Raspberry Pi, and Arduino, combined with hardware-in-the-loop (HIL) testing and IoT telemetry dashboards.',
     },

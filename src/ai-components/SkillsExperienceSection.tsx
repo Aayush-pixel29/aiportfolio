@@ -56,36 +56,46 @@ export const SkillsExperienceSection: React.FC<SkillsExperienceSectionProps> = (
         {/* Skill Map Tabs & Matrix */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Category Selectors */}
-          <div className="lg:col-span-4 flex flex-row lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0">
+          <div className="lg:col-span-4 flex flex-row lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0 no-scrollbar">
             {PROFILE.skillMap.map((cat, idx) => (
               <button
                 key={idx}
                 type="button"
                 onClick={() => setActiveSkillCategory(idx)}
-                className={`p-4 rounded-2xl text-left transition-all border shrink-0 flex items-center justify-between w-full ${
+                className={`p-3.5 sm:p-4 rounded-2xl text-left transition-all border shrink-0 flex items-center justify-between w-auto lg:w-full min-w-[190px] lg:min-w-0 ${
                   activeSkillCategory === idx
                     ? 'bg-white/10 border-white text-white font-semibold shadow-lg'
                     : 'bg-white/[0.02] border-white/10 text-[#BBCCD7] hover:bg-white/5'
                 }`}
               >
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2.5 sm:gap-3">
                   {getCategoryIcon(idx)}
-                  <span className="text-sm uppercase tracking-wider">{cat.title}</span>
+                  <div className="flex flex-col">
+                    <span className="text-xs sm:text-sm uppercase tracking-wider">{cat.title}</span>
+                    {cat.verificationBadge && (
+                      <span className="text-[10px] text-cyan-400/80 font-mono hidden sm:inline-block">
+                        {cat.verificationBadge}
+                      </span>
+                    )}
+                  </div>
                 </div>
-                <span className="text-xs font-mono opacity-60">0{idx + 1}</span>
+                <span className="text-[11px] sm:text-xs font-mono opacity-60">0{idx + 1}</span>
               </button>
             ))}
           </div>
 
           {/* Active Skills Display */}
           <div className="lg:col-span-8 p-6 sm:p-8 rounded-[32px] bg-white/[0.03] border border-white/15">
-            <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
-              <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-white flex items-center gap-2">
-                {getCategoryIcon(activeSkillCategory)}
-                {PROFILE.skillMap[activeSkillCategory].title}
-              </h3>
-              <span className="text-xs text-[#BBCCD7] uppercase tracking-wider font-mono">
-                {PROFILE.skillMap[activeSkillCategory].skills.length} Capabilities
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-white/10 mb-6 gap-2">
+              <div className="flex items-center gap-2">
+                <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-white flex items-center gap-2">
+                  {getCategoryIcon(activeSkillCategory)}
+                  {PROFILE.skillMap[activeSkillCategory].title}
+                </h3>
+              </div>
+              <span className="text-xs px-3 py-1 rounded-full bg-white/10 text-cyan-300 font-mono self-start sm:self-auto border border-white/15">
+                {PROFILE.skillMap[activeSkillCategory].verificationBadge ||
+                  `${PROFILE.skillMap[activeSkillCategory].skills.length} Capabilities`}
               </span>
             </div>
 
@@ -105,13 +115,13 @@ export const SkillsExperienceSection: React.FC<SkillsExperienceSectionProps> = (
             <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <span className="text-xs uppercase tracking-widest text-[#BBCCD7] font-semibold flex items-center gap-1.5">
                 <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
-                Production Evidence:
+                Verified Production Proof:
               </span>
               <div className="flex items-center gap-2 flex-wrap">
                 {PROFILE.skillMap[activeSkillCategory].evidence.map((ev, eIdx) => (
                   <span
                     key={eIdx}
-                    className="text-xs px-3 py-1 rounded-full bg-white/10 text-white font-mono"
+                    className="text-xs px-3 py-1 rounded-full bg-white/10 text-white font-mono border border-white/10"
                   >
                     {ev}
                   </span>

@@ -17,15 +17,15 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact }) => 
       id="about"
       className="relative min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 md:px-12 py-24 sm:py-32 overflow-hidden bg-[#0C0C0C]"
     >
-      {/* 4 Decorative 3D Images in Corners */}
+      {/* 4 Decorative 3D Images in Corners (Subtle/Hidden on Mobile to avoid text clutter) */}
 
       {/* Top-left: Moon icon */}
-      <div className="absolute top-[3%] left-[1%] sm:left-[2%] md:left-[4%] z-0 pointer-events-none opacity-80">
+      <div className="absolute top-[2%] left-[1%] sm:left-[2%] md:left-[4%] z-0 pointer-events-none opacity-30 sm:opacity-80 hidden xs:block">
         <FadeIn delay={0.1} duration={0.9} x={-80} y={0}>
           <img
             src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png"
             alt="3D Moon element"
-            className="w-[110px] sm:w-[150px] md:w-[200px] h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
+            className="w-[70px] sm:w-[140px] md:w-[200px] h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
             referrerPolicy="no-referrer"
             loading="lazy"
           />
@@ -33,12 +33,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact }) => 
       </div>
 
       {/* Bottom-left: 3D object */}
-      <div className="absolute bottom-[6%] left-[2%] sm:left-[5%] md:left-[8%] z-0 pointer-events-none opacity-80">
+      <div className="absolute bottom-[4%] left-[2%] sm:left-[5%] md:left-[8%] z-0 pointer-events-none opacity-30 sm:opacity-80 hidden xs:block">
         <FadeIn delay={0.25} duration={0.9} x={-80} y={0}>
           <img
             src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png"
             alt="3D object element"
-            className="w-[90px] sm:w-[130px] md:w-[170px] h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
+            className="w-[60px] sm:w-[120px] md:w-[170px] h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
             referrerPolicy="no-referrer"
             loading="lazy"
           />
@@ -46,12 +46,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact }) => 
       </div>
 
       {/* Top-right: Lego icon */}
-      <div className="absolute top-[3%] right-[1%] sm:right-[2%] md:right-[4%] z-0 pointer-events-none opacity-80">
+      <div className="absolute top-[2%] right-[1%] sm:right-[2%] md:right-[4%] z-0 pointer-events-none opacity-30 sm:opacity-80 hidden xs:block">
         <FadeIn delay={0.15} duration={0.9} x={80} y={0}>
           <img
             src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png"
             alt="3D Lego element"
-            className="w-[110px] sm:w-[150px] md:w-[200px] h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
+            className="w-[70px] sm:w-[140px] md:w-[200px] h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
             referrerPolicy="no-referrer"
             loading="lazy"
           />
@@ -59,12 +59,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact }) => 
       </div>
 
       {/* Bottom-right: 3D group */}
-      <div className="absolute bottom-[6%] right-[2%] sm:right-[5%] md:right-[8%] z-0 pointer-events-none opacity-80">
+      <div className="absolute bottom-[4%] right-[2%] sm:right-[5%] md:right-[8%] z-0 pointer-events-none opacity-30 sm:opacity-80 hidden xs:block">
         <FadeIn delay={0.3} duration={0.9} x={80} y={0}>
           <img
             src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png"
             alt="3D group element"
-            className="w-[120px] sm:w-[160px] md:w-[210px] h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
+            className="w-[80px] sm:w-[150px] md:w-[210px] h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
             referrerPolicy="no-referrer"
             loading="lazy"
           />
@@ -183,6 +183,65 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact }) => 
                     <span>{ach}</span>
                   </div>
                 ))}
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+
+        {/* Dedicated Engineering Proof & Stack Verification Block */}
+        <div className="w-full mt-10 text-left">
+          <FadeIn delay={0.2} y={20}>
+            <div className="p-6 sm:p-8 rounded-[32px] bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/15">
+              <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+                <div>
+                  <span className="text-xs uppercase tracking-widest text-[#BBCCD7] font-mono block mb-1">
+                    Production Stack
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-white">
+                    Engineering Proof &amp; Systems Verification
+                  </h3>
+                </div>
+                <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 font-mono">
+                  Verified Deployments
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/10 space-y-2">
+                  <div className="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">
+                    AI &amp; Agent Core
+                  </div>
+                  <p className="text-xs text-[#D7E2EA]/80 font-light leading-relaxed">
+                    LangChain, Qdrant Vector DB, BM25 Hybrid Search, Gemini API, Ollama Local Models, PyTorch
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/10 space-y-2">
+                  <div className="text-xs font-bold uppercase tracking-wider text-[#B600A8] font-mono">
+                    Vision &amp; Edge AI
+                  </div>
+                  <p className="text-xs text-[#D7E2EA]/80 font-light leading-relaxed">
+                    YOLOv8, BoT-SORT, OpenCV, TensorFlow Lite INT8, Qwen2.5-VL, Grad-CAM Saliency Maps
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/10 space-y-2">
+                  <div className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-mono">
+                    Backend &amp; APIs
+                  </div>
+                  <p className="text-xs text-[#D7E2EA]/80 font-light leading-relaxed">
+                    FastAPI Async Workers, Python, PostgreSQL, REST Architecture, Atomic File Persistence
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/10 space-y-2">
+                  <div className="text-xs font-bold uppercase tracking-wider text-[#7621B0] font-mono">
+                    Frontend &amp; DevTools
+                  </div>
+                  <p className="text-xs text-[#D7E2EA]/80 font-light leading-relaxed">
+                    Next.js 14/15, TypeScript, React, Semgrep AST Security, VS Code Extension APIs, Docker
+                  </p>
+                </div>
               </div>
             </div>
           </FadeIn>

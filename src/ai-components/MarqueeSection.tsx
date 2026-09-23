@@ -76,7 +76,7 @@ export const MarqueeSection: React.FC = () => {
               <div
                 key={`row1-${index}`}
                 aria-hidden={isClone ? 'true' : undefined}
-                className="relative group w-[380px] sm:w-[440px] h-[240px] sm:h-[270px] shrink-0 rounded-2xl overflow-hidden bg-[#161616] border border-white/10 shadow-lg"
+                className="relative group w-[260px] xs:w-[300px] sm:w-[380px] md:w-[440px] h-[170px] xs:h-[190px] sm:h-[240px] md:h-[270px] shrink-0 rounded-2xl overflow-hidden bg-[#161616] border border-white/10 shadow-lg"
               >
                 <img
                   src={item.src}
@@ -85,11 +85,11 @@ export const MarqueeSection: React.FC = () => {
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-4">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-3.5 sm:p-4">
                   <span className="text-[10px] uppercase tracking-widest text-[#BBCCD7] font-semibold">
                     {item.category}
                   </span>
-                  <span className="text-sm font-bold text-white tracking-tight">
+                  <span className="text-xs sm:text-sm font-bold text-white tracking-tight">
                     {item.title}
                   </span>
                 </div>
@@ -111,7 +111,7 @@ export const MarqueeSection: React.FC = () => {
               <div
                 key={`row2-${index}`}
                 aria-hidden={isClone ? 'true' : undefined}
-                className="relative group w-[380px] sm:w-[440px] h-[240px] sm:h-[270px] shrink-0 rounded-2xl overflow-hidden bg-[#161616] border border-white/10 shadow-lg"
+                className="relative group w-[260px] xs:w-[300px] sm:w-[380px] md:w-[440px] h-[170px] xs:h-[190px] sm:h-[240px] md:h-[270px] shrink-0 rounded-2xl overflow-hidden bg-[#161616] border border-white/10 shadow-lg"
               >
                 <img
                   src={item.src}
@@ -120,11 +120,11 @@ export const MarqueeSection: React.FC = () => {
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-4">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-3.5 sm:p-4">
                   <span className="text-[10px] uppercase tracking-widest text-[#BBCCD7] font-semibold">
                     {item.category}
                   </span>
-                  <span className="text-sm font-bold text-white tracking-tight">
+                  <span className="text-xs sm:text-sm font-bold text-white tracking-tight">
                     {item.title}
                   </span>
                 </div>
