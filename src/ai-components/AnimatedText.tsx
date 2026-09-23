@@ -7,24 +7,18 @@ interface AnimatedTextProps {
   className?: string;
 }
 
-interface CharProps {
-  char: string;
+interface WordProps {
+  word: string;
   progress: MotionValue<number>;
   range: [number, number];
 }
 
-const Character: React.FC<CharProps> = ({ char, progress, range }) => {
-  const opacity = useTransform(progress, range, [0.2, 1]);
-
+const Word: React.FC<WordProps> = ({ word, progress, range }) => {
+  const opacity = useTransform(progress, range, [0.25, 1]);
   return (
-    <span className="relative inline-block">
-      <span className="opacity-0 select-none" aria-hidden="true">
-        {char}
-      </span>
-      <motion.span style={{ opacity }} className="absolute inset-0">
-        {char}
-      </motion.span>
-    </span>
+    <motion.span style={{ opacity }} className="inline-block mr-[0.28em]">
+      {word}
+    </motion.span>
   );
 };
 
@@ -32,40 +26,25 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className = ''
   const containerRef = useRef<HTMLParagraphElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start 0.8', 'end 0.2'],
+    offset: ['start 0.85', 'end 0.35'],
   });
 
   const words = text.split(' ');
-  const totalChars = text.length;
-  let charCounter = 0;
+  const totalWords = words.length;
 
   return (
-    <p ref={containerRef} className={className}>
+    <p ref={containerRef} className={className} aria-label={text}>
       {words.map((word, wordIndex) => {
-        const wordChars = word.split('');
-        const startIndex = charCounter;
-        charCounter += word.length + 1; // account for space
+        const start = wordIndex / totalWords;
+        const end = Math.min(start + 0.15, 1);
 
         return (
-          <span key={wordIndex} className="inline-block whitespace-nowrap">
-            {wordChars.map((char, charIdx) => {
-              const globalIndex = startIndex + charIdx;
-              const start = globalIndex / totalChars;
-              const end = Math.min(start + 0.1, 1);
-
-              return (
-                <Character
-                  key={charIdx}
-                  char={char}
-                  progress={scrollYProgress}
-                  range={[start, end]}
-                />
-              );
-            })}
-            {wordIndex < words.length - 1 && (
-              <span className="inline-block">&nbsp;</span>
-            )}
-          </span>
+          <Word
+            key={wordIndex}
+            word={word}
+            progress={scrollYProgress}
+            range={[start, end]}
+          />
         );
       })}
     </p>

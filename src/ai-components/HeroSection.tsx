@@ -3,13 +3,17 @@ import React from 'react';
 import { FadeIn } from './FadeIn';
 import { Magnet } from './Magnet';
 import { ContactButton } from './ContactButton';
-import { MapPin } from 'lucide-react';
+import { MapPin, FileText } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { PROFILE } from '../data/profile';
 
-interface HeroSectionProps { onOpenContact: () => void; onNavigate: (sectionId: string) => void; }
+interface HeroSectionProps {
+  onOpenContact: () => void;
+  onNavigate: (sectionId: string) => void;
+}
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavigate }) => { const avatarSrc = '/images/avatar-3d-new.png';
+export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavigate }) => {
+  const avatarSrc = '/images/avatar-3d-new.png';
 
   return (
     <section className="relative h-screen w-full flex flex-col justify-between overflow-x-clip bg-[#0C0C0C] select-none">
@@ -33,7 +37,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
           </div>
 
           {/* Nav links */}
-          <nav className="flex items-center gap-5 sm:gap-8 md:gap-10 text-xs sm:text-sm md:text-base lg:text-[1.15rem] font-medium uppercase tracking-wider text-[#D7E2EA]">
+          <nav className="flex items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 text-xs sm:text-sm md:text-base lg:text-[1.15rem] font-medium uppercase tracking-wider text-[#D7E2EA]">
             <button
               type="button"
               onClick={() => onNavigate('about')}
@@ -69,6 +73,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
             >
               Skills
             </button>
+            <a
+              href={PROFILE.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3.5 py-1.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/15 hover:border-white/40 transition-all text-white flex items-center gap-1.5 cursor-pointer text-xs md:text-sm font-semibold tracking-wider hover:scale-105"
+              title="View & Download Resume PDF"
+            >
+              <FileText className="w-3.5 h-3.5 text-[#B600A8]" />
+              <span>Resume</span>
+            </a>
             <button
               type="button"
               onClick={onOpenContact}
@@ -116,8 +130,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
                     (e.target as HTMLImageElement).src = '/images/avatar-main.webp';
                   }}
                 />
-
-                </div>
+              </div>
             </Magnet>
           </div>
         </FadeIn>
@@ -165,10 +178,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
           </div>
         </FadeIn>
 
-        {/* Right: Contact Button */}
+        {/* Right: Resume & Contact Buttons */}
         <FadeIn delay={0.5} y={20}>
           <div className="flex flex-col items-end gap-2">
-            <ContactButton onClick={onOpenContact} label="Let's Talk" />
+            <div className="flex items-center gap-3">
+              <a
+                href={PROFILE.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-3 rounded-full border border-white/20 bg-white/5 hover:bg-white/15 hover:border-white/40 text-white font-medium uppercase tracking-wider text-xs transition-all hover:scale-105"
+                title="Download Resume PDF"
+              >
+                <FileText className="w-3.5 h-3.5 text-cyan-400" />
+                <span>Resume (PDF)</span>
+              </a>
+              <ContactButton onClick={onOpenContact} label="Let's Talk" />
+            </div>
             <span className="text-[10px] uppercase tracking-widest text-[#BBCCD7]/60 hidden sm:inline-block">
               Open For Selected Projects
             </span>

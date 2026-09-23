@@ -58,6 +58,8 @@ export const MarqueeSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
+      role="region"
+      aria-label="Project Preview Carousel"
       className="bg-[#0C0C0C] pt-24 sm:pt-32 md:pt-36 pb-12 overflow-hidden select-none"
     >
       <div className="flex flex-col gap-3.5">
@@ -68,28 +70,32 @@ export const MarqueeSection: React.FC = () => {
             transform: `translateX(${offset - 200}px)`,
           }}
         >
-          {TRIPLED_ROW_1.map((item, index) => (
-            <div
-              key={`row1-${index}`}
-              className="relative group w-[380px] sm:w-[440px] h-[240px] sm:h-[270px] shrink-0 rounded-2xl overflow-hidden bg-[#161616] border border-white/10 shadow-lg"
-            >
-              <img
-                src={item.src}
-                alt={item.title}
-                loading="lazy"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-4">
-                <span className="text-[10px] uppercase tracking-widest text-[#BBCCD7] font-semibold">
-                  {item.category}
-                </span>
-                <span className="text-sm font-bold text-white tracking-tight">
-                  {item.title}
-                </span>
+          {TRIPLED_ROW_1.map((item, index) => {
+            const isClone = index >= ROW_1_ITEMS.length;
+            return (
+              <div
+                key={`row1-${index}`}
+                aria-hidden={isClone ? 'true' : undefined}
+                className="relative group w-[380px] sm:w-[440px] h-[240px] sm:h-[270px] shrink-0 rounded-2xl overflow-hidden bg-[#161616] border border-white/10 shadow-lg"
+              >
+                <img
+                  src={item.src}
+                  alt={isClone ? '' : item.title}
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-4">
+                  <span className="text-[10px] uppercase tracking-widest text-[#BBCCD7] font-semibold">
+                    {item.category}
+                  </span>
+                  <span className="text-sm font-bold text-white tracking-tight">
+                    {item.title}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Row 2: Moves LEFT on scroll */}
@@ -99,28 +105,32 @@ export const MarqueeSection: React.FC = () => {
             transform: `translateX(${-(offset - 200)}px)`,
           }}
         >
-          {TRIPLED_ROW_2.map((item, index) => (
-            <div
-              key={`row2-${index}`}
-              className="relative group w-[380px] sm:w-[440px] h-[240px] sm:h-[270px] shrink-0 rounded-2xl overflow-hidden bg-[#161616] border border-white/10 shadow-lg"
-            >
-              <img
-                src={item.src}
-                alt={item.title}
-                loading="lazy"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-4">
-                <span className="text-[10px] uppercase tracking-widest text-[#BBCCD7] font-semibold">
-                  {item.category}
-                </span>
-                <span className="text-sm font-bold text-white tracking-tight">
-                  {item.title}
-                </span>
+          {TRIPLED_ROW_2.map((item, index) => {
+            const isClone = index >= ROW_2_ITEMS.length;
+            return (
+              <div
+                key={`row2-${index}`}
+                aria-hidden={isClone ? 'true' : undefined}
+                className="relative group w-[380px] sm:w-[440px] h-[240px] sm:h-[270px] shrink-0 rounded-2xl overflow-hidden bg-[#161616] border border-white/10 shadow-lg"
+              >
+                <img
+                  src={item.src}
+                  alt={isClone ? '' : item.title}
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-4">
+                  <span className="text-[10px] uppercase tracking-widest text-[#BBCCD7] font-semibold">
+                    {item.category}
+                  </span>
+                  <span className="text-sm font-bold text-white tracking-tight">
+                    {item.title}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

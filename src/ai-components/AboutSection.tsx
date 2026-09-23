@@ -4,7 +4,7 @@ import { FadeIn } from './FadeIn';
 import { AnimatedText } from './AnimatedText';
 import { ContactButton } from './ContactButton';
 import { PROFILE } from '../data/profile';
-import { Award, Compass, Sparkles } from 'lucide-react';
+import { Award, Compass, Sparkles, GraduationCap, FileText, Download, ShieldCheck } from 'lucide-react';
 
 interface AboutSectionProps {
   onOpenContact: () => void;
@@ -94,11 +94,27 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact }) => 
         {/* Spacing gap */}
         <div className="h-8 sm:h-12 md:h-14" />
 
-        {/* Character-by-character animated paragraph */}
+        {/* Animated paragraph without text duplication */}
         <AnimatedText
           text={PROFILE.bioLong}
           className="text-[#D7E2EA] font-medium text-center leading-relaxed max-w-[680px] mx-auto text-[clamp(1rem,2vw,1.4rem)]"
         />
+
+        {/* Quick Resume CTA Banner */}
+        <FadeIn delay={0.1} y={20}>
+          <div className="mt-8 flex items-center justify-center gap-3">
+            <a
+              href={PROFILE.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs uppercase tracking-widest font-semibold transition-all hover:scale-105 shadow-lg"
+            >
+              <FileText className="w-4 h-4 text-[#B600A8]" />
+              <span>View Resume (PDF)</span>
+              <Download className="w-3.5 h-3.5 opacity-70 ml-1" />
+            </a>
+          </div>
+        </FadeIn>
 
         {/* Proof Signals Grid */}
         <div className="w-full mt-14 sm:mt-18 pt-12 border-t border-white/10">
@@ -124,6 +140,52 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact }) => 
               </FadeIn>
             ))}
           </div>
+        </div>
+
+        {/* Education & Academic Credentials Card */}
+        <div className="w-full mt-12 text-left">
+          <FadeIn delay={0.15} y={20}>
+            <div className="p-6 sm:p-8 rounded-[32px] bg-white/[0.03] border border-white/10 relative overflow-hidden">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/10 mb-5">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 rounded-2xl bg-[#7621B0]/20 border border-[#7621B0]/40 text-[#B600A8]">
+                    <GraduationCap className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs uppercase tracking-widest text-[#BBCCD7] font-mono">
+                      Education &amp; Qualifications
+                    </span>
+                    <h3 className="text-lg sm:text-xl font-bold uppercase tracking-tight text-white">
+                      {PROFILE.education.degree}
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <span className="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 font-mono text-xs font-semibold">
+                    CGPA: {PROFILE.education.cgpa}
+                  </span>
+                  <span className="text-xs font-mono text-[#BBCCD7]/70">
+                    {PROFILE.education.period}
+                  </span>
+                </div>
+              </div>
+
+              <div className="text-sm text-[#D7E2EA]/85 font-light mb-4">
+                <span className="text-white font-medium">{PROFILE.education.institution}</span>
+              </div>
+
+              {/* Achievements & IP */}
+              <div className="space-y-2 pt-2 border-t border-white/5">
+                {PROFILE.education.achievements.map((ach, aIdx) => (
+                  <div key={aIdx} className="flex items-start gap-2 text-xs sm:text-sm text-[#D7E2EA]/80 font-light">
+                    <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>{ach}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
         </div>
 
         {/* Journey Section anchor */}

@@ -20,6 +20,14 @@ export interface JourneyMilestone {
   evidence?: string[];
 }
 
+export interface EducationInfo {
+  degree: string;
+  institution: string;
+  period: string;
+  cgpa: string;
+  achievements: string[];
+}
+
 export const PROFILE = {
   name: 'Aayush Shelar',
   handle: 'Aayush-pixel29',
@@ -30,11 +38,23 @@ export const PROFILE = {
   phone: '+91 91752 27454',
   githubUrl: 'https://github.com/Aayush-pixel29',
   linkedinUrl: 'https://www.linkedin.com/in/aayush-shelar-166b99249/',
+  resumeUrl: '/resume.pdf',
   bioShort:
     'A software and AI builder who turns ideas into working products. Specializing in AI agents, edge systems, full-stack architectures, and computer vision.',
   bioLong:
     'A hybrid engineer with a software-first direction. With extensive experience across electronics, embedded systems, machine learning, and modern web architectures, I engineer end-to-end resilient systems—from hardware interfaces to production multi-agent AI swarms.',
   
+  education: {
+    degree: 'B.Tech, Electronics and Computer Engineering',
+    institution: 'Sharad Institute of Technology, Maharashtra',
+    period: 'July 2022 — June 2026',
+    cgpa: '7.05 / 10',
+    achievements: [
+      "Co-registered holder of a Design under India's Designs Act (Weed Control Device, Design No. 478508-001)",
+      'Competed at DIPEX and Electrovert technical events with Team TRINETRA/ETESA',
+    ],
+  },
+
   metrics: [
     { label: 'Students Impacted', value: '1,500+', subtext: 'via technical training & university developer events' },
     { label: 'Flagship Projects', value: '10', subtext: 'engineered across AI, edge, vision & full-stack' },

@@ -2,17 +2,14 @@
 import React, { useState } from 'react';
 import { FadeIn } from './FadeIn';
 import { PROFILE } from '../data/profile';
-import { ContactButton } from './ContactButton';
 import { Cpu, Layers, Terminal, Server, Briefcase, CheckCircle } from 'lucide-react';
 
 interface SkillsExperienceSectionProps {
-  onOpenContact: (topic?: string) => void;
-  onNavigate: (sectionId: string) => void;
+  onOpenContact?: (topic?: string) => void;
+  onNavigate?: (sectionId: string) => void;
 }
 
-export const SkillsExperienceSection: React.FC<SkillsExperienceSectionProps> = ({
-  onOpenContact,
-}) => {
+export const SkillsExperienceSection: React.FC<SkillsExperienceSectionProps> = () => {
   const [activeSkillCategory, setActiveSkillCategory] = useState<number>(0);
 
   const getCategoryIcon = (idx: number) => {
@@ -194,9 +191,7 @@ export const SkillsExperienceSection: React.FC<SkillsExperienceSectionProps> = (
             ))}
           </div>
         </div>
-
-              </div>
+      </div>
     </section>
   );
 };
-

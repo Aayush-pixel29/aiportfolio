@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Upload, Sliders, Check, Download, RefreshCw, Wand2, Eye, Sparkles } from 'lucide-react';
+import { X, Upload, Sliders, Check, Download, RefreshCw, Wand2, Eye } from 'lucide-react';
 
 interface AvatarStudioModalProps {
   isOpen: boolean;

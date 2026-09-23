@@ -24,6 +24,7 @@ export const PROJECTS_DATA: ProjectDetail[] = [
     ],
     images: ['/images/sre-autonomous.jpg'],
     githubUrl: 'https://github.com/Aayush-pixel29/SRE-Autonomous',
+    liveUrl: 'https://sre-autonomous-a9hzadwyp5owatpdzr3gnu.streamlit.app/',
     featured: true,
   },
   {
@@ -74,6 +75,7 @@ export const PROJECTS_DATA: ProjectDetail[] = [
     ],
     images: ['/images/recon-ai.webp'],
     githubUrl: 'https://github.com/Aayush-pixel29/recon-ai-buildathon',
+    liveUrl: 'https://recon-ai-buildathon.vercel.app',
     featured: true,
   },
   {
@@ -99,6 +101,7 @@ export const PROJECTS_DATA: ProjectDetail[] = [
     ],
     images: ['/images/sentinel-new.jpg'],
     githubUrl: 'https://github.com/Aayush-pixel29/SENTINEL',
+    liveUrl: 'https://sentinel-sigma-liard.vercel.app/',
     featured: false,
   },
   {
@@ -124,6 +127,7 @@ export const PROJECTS_DATA: ProjectDetail[] = [
     ],
     images: ['/images/doc-gen-agent.jpg'],
     githubUrl: 'https://github.com/Aayush-pixel29/doc-gen-agent-api',
+    liveUrl: 'https://doc-gen-agent-api.onrender.com/',
     featured: false,
   },
   {
@@ -149,6 +153,7 @@ export const PROJECTS_DATA: ProjectDetail[] = [
     ],
     images: ['/images/passion-protocol.jpg'],
     githubUrl: 'https://github.com/Aayush-pixel29/passion-protocol',
+    liveUrl: 'https://passion-protocol.vercel.app',
     featured: false,
   },
   {
@@ -174,6 +179,7 @@ export const PROJECTS_DATA: ProjectDetail[] = [
     ],
     images: ['/images/interview-agent.jpg'],
     githubUrl: 'https://github.com/Aayush-pixel29/Interview-Agent',
+    liveUrl: 'https://interview-agent-kohl.vercel.app/demo',
     featured: false,
   },
   {

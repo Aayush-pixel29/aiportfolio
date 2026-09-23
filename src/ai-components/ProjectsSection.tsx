@@ -5,7 +5,7 @@ import { FadeIn } from './FadeIn';
 import { LiveProjectButton } from './LiveProjectButton';
 import { ProjectDetail } from './ProjectModal';
 import { PROJECTS_DATA } from '../data/projects';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, ExternalLink } from 'lucide-react';
 import { Github } from './Icons';
 
 interface ProjectsSectionProps {
@@ -65,7 +65,7 @@ const ProjectCard: React.FC<CardProps> = ({ project, index, totalCards, onSelect
           </div>
 
           {/* Action buttons */}
-          <div className="flex items-center gap-3 self-end sm:self-center">
+          <div className="flex items-center gap-2.5 self-end sm:self-center flex-wrap">
             {project.githubUrl && (
               <a
                 href={project.githubUrl}
@@ -77,6 +77,21 @@ const ProjectCard: React.FC<CardProps> = ({ project, index, totalCards, onSelect
                 aria-label="View GitHub Repository"
               >
                 <Github className="w-4 h-4" />
+              </a>
+            )}
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 text-xs font-semibold uppercase tracking-wider hover:bg-emerald-500/25 transition-all hover:scale-105 shadow-[0_0_15px_rgba(16,185,129,0.2)]"
+                title="Open Live Deployed Demo"
+                aria-label="Open Live Demo"
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Live Demo</span>
+                <ExternalLink className="w-3 h-3 ml-0.5" />
               </a>
             )}
             <LiveProjectButton onClick={() => onSelectProject(project)} label="Case Study" />

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Sparkles, CheckCircle2, Cpu, Layers } from 'lucide-react';
+import { X, ExternalLink, Sparkles, CheckCircle2, Cpu } from 'lucide-react';
 import { Github } from './Icons';
 
 export interface ProjectDetail {
@@ -63,7 +63,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-5 right-5 sm:top-7 sm:right-7 p-2.5 rounded-full text-[#D7E2EA]/70 hover:text-white hover:bg-white/10 transition-colors z-20"
+              className="absolute top-5 right-5 sm:top-7 sm:right-7 p-2.5 rounded-full text-[#D7E2EA]/70 hover:text-white hover:bg-white/10 transition-colors z-20 cursor-pointer"
               aria-label="Close project modal"
             >
               <X className="w-6 h-6" />
@@ -100,13 +100,25 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     <span>GitHub Code</span>
                   </a>
                 )}
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-500/20 border border-emerald-400 text-emerald-300 text-xs font-semibold uppercase tracking-widest hover:bg-emerald-500/30 transition-transform hover:scale-105 shadow-[0_0_15px_rgba(16,185,129,0.25)]"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>Live Demo</span>
+                    <ExternalLink className="w-3.5 h-3.5 ml-0.5" />
+                  </a>
+                )}
                 <button
                   type="button"
                   onClick={() => {
                     onClose();
                     onOpenContact(project.title);
                   }}
-                  className="px-6 py-2.5 rounded-full uppercase tracking-widest text-xs font-semibold text-white transition-transform hover:scale-105"
+                  className="px-6 py-2.5 rounded-full uppercase tracking-widest text-xs font-semibold text-white transition-transform hover:scale-105 cursor-pointer"
                   style={{
                     background:
                       'linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)',
@@ -127,7 +139,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   alt={`${project.title} showcase visual`}
                   className="w-full h-full object-cover transition-all duration-500"
                   onError={(e) => {
-                    // Fallback to placeholder banner
                     (e.target as HTMLElement).style.display = 'none';
                   }}
                 />
@@ -141,7 +152,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                       key={idx}
                       type="button"
                       onClick={() => setSelectedImage(idx)}
-                      className={`relative h-20 sm:h-24 rounded-2xl overflow-hidden border-2 transition-all ${
+                      className={`relative h-20 sm:h-24 rounded-2xl overflow-hidden border-2 transition-all cursor-pointer ${
                         selectedImage === idx
                           ? 'border-white scale-[1.02]'
                           : 'border-white/20 opacity-60 hover:opacity-90'
@@ -164,7 +175,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 <div>
                   <h4 className="text-xs uppercase tracking-widest text-[#BBCCD7] font-semibold mb-1.5 flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-[#B600A8]" />
-                    The Challenge & Problem
+                    The Challenge &amp; Problem
                   </h4>
                   <p className="text-sm text-[#D7E2EA]/85 font-light leading-relaxed">
                     {project.problem}
@@ -174,7 +185,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 <div>
                   <h4 className="text-xs uppercase tracking-widest text-[#BBCCD7] font-semibold mb-1.5 flex items-center gap-1.5">
                     <Cpu className="w-3.5 h-3.5 text-[#7621B0]" />
-                    Engineered Solution & Architecture
+                    Engineered Solution &amp; Architecture
                   </h4>
                   <p className="text-sm text-[#D7E2EA]/85 font-light leading-relaxed">
                     {project.solution}
@@ -185,7 +196,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   <div>
                     <h4 className="text-xs uppercase tracking-widest text-[#BBCCD7] font-semibold mb-1.5 flex items-center gap-1.5">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                      Key Result & Impact
+                      Key Result &amp; Impact
                     </h4>
                     <p className="text-sm text-emerald-300/90 font-light leading-relaxed">
                       {project.impact}
@@ -233,8 +244,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   <div className="text-xs uppercase tracking-wider text-[#D7E2EA]/50 font-light">Lead Engineer</div>
                   <div className="text-sm font-medium text-white/90">Aayush Shelar</div>
                 </div>
-                {project.githubUrl && (
-                  <div className="pt-2">
+
+                <div className="pt-2 flex flex-col gap-2">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs text-emerald-400 hover:text-emerald-300 font-semibold uppercase tracking-wider"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      <span>Open Live Application Demo →</span>
+                    </a>
+                  )}
+                  {project.githubUrl && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
@@ -244,8 +267,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                       <span>Explore Repository on GitHub</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             </div>
           </motion.div>

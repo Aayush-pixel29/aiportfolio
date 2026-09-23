@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 
-import { ArrowUp, Mail, Phone, MapPin } from 'lucide-react';
+import { ArrowUp, Mail, Phone, MapPin, FileText, Download } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { PROFILE } from '../data/profile';
 
@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, onNavigate }) => 
           <div className="flex items-center gap-2 mb-4">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-xs uppercase tracking-widest text-[#BBCCD7] font-semibold">
-              Available For Selected Projects
+              Available For Selected Projects &amp; Roles
             </span>
           </div>
           
@@ -36,14 +36,25 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, onNavigate }) => 
           </h2>
           
           <p className="text-sm md:text-base font-light text-[#D7E2EA]/70 max-w-2xl leading-relaxed">
-            I&apos;m currently active as an independent freelancer, taking on selected AI, software, automation, developer-tool, and product-engineering work.
+            I&apos;m currently active building agentic systems, developer tools, computer vision pipelines, and full-stack web applications.
           </p>
         </div>
 
-        <div className="relative z-10 shrink-0 w-full lg:w-auto flex justify-start lg:justify-end">
+        <div className="relative z-10 shrink-0 w-full lg:w-auto flex flex-col sm:flex-row items-center gap-3 justify-start lg:justify-end">
+          <a
+            href={PROFILE.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-6 py-4 rounded-full border border-white/25 bg-white/5 hover:bg-white/15 text-white font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-md"
+          >
+            <FileText className="w-4 h-4 text-cyan-400" />
+            <span>Resume (PDF)</span>
+            <Download className="w-3.5 h-3.5 opacity-60" />
+          </a>
+
           <button
             onClick={onOpenContact}
-            className="group relative px-8 py-4 w-full lg:w-auto rounded-full font-bold uppercase tracking-widest text-sm text-white overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg"
+            className="group relative px-8 py-4 w-full sm:w-auto rounded-full font-bold uppercase tracking-widest text-sm text-white overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg cursor-pointer"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-[#7621B0] to-[#B600A8] opacity-80 group-hover:opacity-100 transition-opacity" />
             <div className="absolute inset-0 rounded-full border border-white/30" />
@@ -84,6 +95,16 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, onNavigate }) => 
         </div>
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+          <a
+            href={PROFILE.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-3 rounded-full border border-white/20 text-xs uppercase tracking-widest text-white hover:bg-white/10 transition-colors"
+          >
+            <FileText className="w-3.5 h-3.5 text-[#B600A8]" />
+            <span>Download Resume</span>
+          </a>
+
           <button
             type="button"
             onClick={scrollToTop}
@@ -103,6 +124,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, onNavigate }) => 
           <button onClick={() => onNavigate('services')} className="hover:text-white transition-colors uppercase tracking-wider cursor-pointer">Services</button>
           <button onClick={() => onNavigate('skills')} className="hover:text-white transition-colors uppercase tracking-wider cursor-pointer">Skills</button>
           <button onClick={() => onNavigate('experience')} className="hover:text-white transition-colors uppercase tracking-wider cursor-pointer">Experience</button>
+          <a href={PROFILE.resumeUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors uppercase tracking-wider">Resume</a>
           <button onClick={onOpenContact} className="hover:text-white transition-colors uppercase tracking-wider cursor-pointer">Contact</button>
         </div>
 
