@@ -8,15 +8,17 @@ interface MarqueeItem {
 }
 
 const ROW_1_ITEMS: MarqueeItem[] = [
-  { title: 'SRE & FinOps Triage Swarm', category: 'Multi-Agent', src: '/images/sre-autonomous.jpg' },
-  { title: 'SkillFoundry', category: 'AI Agents', src: '/images/skillfoundry.jpg' },
-  { title: 'Recon AI', category: 'Disaster Response', src: '/images/recon-ai.webp' },
-  { title: 'SENTINEL', category: 'Developer Tools', src: '/images/sentinel-new.jpg' },
+  { title: 'SRE & FinOps Triage Swarm', category: 'Multi-Agent Swarm', src: '/images/sre-autonomous.jpg' },
+  { title: 'SearchOps', category: 'Search & Hybrid IR', src: '/images/searchops.png' },
+  { title: 'SENTINEL-X', category: 'Agent Control Plane', src: '/images/sentinel-new.jpg' },
+  { title: 'SkillFoundry', category: 'Agent Learning', src: '/images/skillfoundry.jpg' },
   { title: 'Doc-Gen Agent API', category: 'AI Application', src: '/images/doc-gen-agent.jpg' },
+  { title: 'Recon AI', category: 'Disaster Response', src: '/images/recon-ai.webp' },
 ];
 
 const ROW_2_ITEMS: MarqueeItem[] = [
-  { title: 'Passion Protocol', category: 'Social / Matching', src: '/images/passion-protocol.jpg' },
+  { title: 'SearchOps Inspector', category: 'IR Analytics', src: '/images/searchops-compare.png' },
+  { title: 'Passion Protocol', category: 'Vector Matching', src: '/images/passion-protocol.jpg' },
   { title: 'AI Traffic Flow Analyzer', category: 'Computer Vision', src: '/images/traffic.webp' },
   { title: 'IndicDoc-VQA', category: 'Edge VLM', src: '/images/indicdoc-vqa.jpg' },
   { title: 'Edge Chest X-Ray', category: 'Edge AI / Medical', src: '/images/xray-triage.webp' },

@@ -2,7 +2,7 @@ import { ProjectDetail } from '../ai-components/ProjectModal';
 
 export const PROJECTS_DATA: ProjectDetail[] = [
   // =========================================================================
-  // TIER 1: FEATURED FLAGSHIP SYSTEMS (TOP 4)
+  // TIER 1: FEATURED FLAGSHIP SYSTEMS (TOP 5)
   // =========================================================================
   {
     id: 'sre-triage-swarm',
@@ -57,50 +57,115 @@ export const PROJECTS_DATA: ProjectDetail[] = [
   {
     id: 'sentinel',
     number: '02',
-    title: 'SENTINEL',
-    category: 'Developer Tools',
-    year: '2025',
+    title: 'SENTINEL-X',
+    category: 'AI Safety & DevTools',
+    year: '2026',
     featured: true,
     tier: 'featured',
-    statusBadge: 'Developer Tool Prototype',
+    statusBadge: 'Agent Security Control Plane',
     tagline:
-      'AI code verification layer combining semantic LLM analysis with deterministic security rules and static AST checks.',
+      'AI Agent Reliability, Security & Verification Control Plane — local-first runtime enforcing deterministic tool policies, secret redaction, and CI/CD quality gates.',
     problem:
-      'Static analysis tools flag syntax warnings but miss logical vulnerabilities, security anti-patterns, and architectural regressions across modern codebases.',
+      'The marginal cost of generating AI code and agent workflows is plummeting toward zero, but the cost of verifying, securing, and trusting autonomous tool execution is skyrocketing.',
     solution:
-      'Combined traditional static analysis (Semgrep) with LLM-powered semantic analysis (Gemini) in a unified developer workflow and CLI tool.',
+      'Architected an open-source, local-first control plane that enforces deterministic tool security policies (ToolShield), redacts leaked credentials, manages execution idempotency & checkpoints, scores agent safety benchmarks, and verifies code before human approval.',
     impact:
-      'Reduced pull-request security review overhead with automated inline fix proposals.',
+      '44/44 passing security test suites, zero-latency credential interception, and automated CI/CD gating with human-in-the-loop evidence reports.',
     architecturalDecisions: [
       {
-        decision: 'Dual-Engine: Semgrep AST + Gemini Semantic Reasoning',
+        decision: 'ToolShield Policy Engine & MCP Gateway',
         rationale:
-          'Traditional AST pattern matching ensures deterministic security rule compliance, while LLM reasoning catches complex logical anti-patterns and architectural regressions.',
+          'Explicit tool registry (verified, trusted, unknown, blocked) enforcing ALLOW/DENY/REVIEW decisions with argument injection and path-traversal validation for Model Context Protocol (MCP) tool calls.',
       },
       {
-        decision: 'VS Code Extension + Standalone Python CLI',
+        decision: 'Zero-Loss Output Sanitizer & Secret Redaction',
         rationale:
-          'Gives developers instant in-editor diagnostic squiggles while enabling automated blocking gates inside GitHub Actions CI/CD pipelines.',
+          'High-throughput regex and pattern interceptor redacting connection strings, bearer tokens, private keys, and API keys (OpenAI, Gemini, AWS, GitHub) before telemetry logging.',
+      },
+      {
+        decision: 'Execution Manager & Checkpoint Resumption',
+        rationale:
+          'Ensures execution idempotency and saves state checkpoints to resume multi-step agent workflows seamlessly without duplicate side-effects.',
+      },
+      {
+        decision: 'Multi-Engine Code & Security Verification',
+        rationale:
+          'Integrates Pytest, Semgrep AST rules, and Gitleaks into unified JSON (.sentinel/report.json) and Markdown telemetry artifacts.',
       },
     ],
     measurableResults: [
-      'Automated inline code autofix generation directly in the VS Code editor with single-click diff application.',
-      'Zero-friction CI/CD integration with GitHub Actions reporting scan results in under 5 seconds.',
+      '44/44 deterministic passing tests covering policy enforcement, red team attack simulations, and secret interception.',
+      'Sub-millisecond secret interception and redaction across all streaming agent outputs and Model Context Protocol (MCP) gateways.',
+      'Automated CI/CD quality gating generating structured .sentinel/report.json & .md evidence artifacts in under 5 seconds.',
     ],
-    tools: ['Gemini API', 'Semgrep', 'VS Code API', 'TypeScript', 'Python CLI'],
+    tools: ['Python 3.9+', 'ToolShield Engine', 'MCP Gateway', 'Semgrep AST', 'Gitleaks', 'FastAPI', 'VS Code API', 'Pytest'],
     deliverables: [
-      'Dual-Engine Security Pipeline',
-      'VS Code Diagnostics Provider',
-      'Inline Autofix Engine',
-      'Automated CI/CD Security Gate',
+      'ToolShield Policy Engine (MCP-Ready)',
+      'Zero-Loss Output Sanitizer',
+      'Idempotent Execution Manager',
+      'CI/CD Verification Quality Gate',
     ],
-    images: ['/images/sentinel-new.jpg'],
+    images: ['/images/sentinel-x.jpg', '/images/sentinel-new.jpg'],
     githubUrl: 'https://github.com/Aayush-pixel29/SENTINEL',
     liveUrl: 'https://sentinel-sigma-liard.vercel.app/',
   },
   {
-    id: 'recon-ai',
+    id: 'searchops',
     number: '03',
+    title: 'SearchOps',
+    category: 'Information Retrieval / Hybrid Search',
+    year: '2026',
+    featured: true,
+    tier: 'featured',
+    statusBadge: 'Production-Ready IR Platform',
+    tagline:
+      'Information Retrieval, Hybrid Ranking & Search Engineering Platform with real-time score decomposition and automated IR benchmark suite.',
+    problem:
+      'Generic RAG and search pipelines operate as black boxes, lacking quantitative ranking evaluations (Recall@K, MRR, nDCG@10) and fine-grained score inspection across competing retrieval algorithms.',
+    solution:
+      'Engineered a full-stack retrieval engineering platform to ingest multi-format collections, execute competing retrievers (BM25, Dense Cosine, Hybrid α-fusion, and Reranking), inspect multi-stage score decompositions in real time, and systematically benchmark ranking quality.',
+    impact:
+      'Achieved 0.922 Recall@10 and 1.000 MRR on transformer hybrid reranking with sub-50ms p50 latency and full score explainability.',
+    architecturalDecisions: [
+      {
+        decision: 'Hybrid α-Fusion (BM25 + all-MiniLM-L6-v2)',
+        rationale:
+          'Blends lexical exact token matching with sentence-transformer vector cosine similarity via convex linear score fusion: Score = α · Dense + (1-α) · BM25.',
+      },
+      {
+        decision: '"Why this result ranked #1" Inspector',
+        rationale:
+          'Decomposes real-time result scoring into Lexical %, Vector Semantics %, Hybrid fusion weighting (α), and candidate Cross-Encoder Reranker boosts.',
+      },
+      {
+        decision: 'IR Evaluation & Benchmark Harness',
+        rationale:
+          'Automated evaluation suite computing Recall@5, Recall@10, Mean Reciprocal Rank (MRR), and nDCG@10 against labeled test sets with p50/p95 latency percentiles.',
+      },
+      {
+        decision: 'Multi-Tenant Security & Graceful Degradation',
+        rationale:
+          'Enforces strict tenant partitioning on SQL and vector indices with resilient fallbacks (Redis → in-memory, reranker failure → hybrid fallback, offline hashed embeddings).',
+      },
+    ],
+    measurableResults: [
+      '0.922 Recall@10 and 1.000 MRR benchmarked on local sentence-transformers (all-MiniLM-L6-v2) + Cross-Encoder reranking.',
+      '45.3ms p50 latency on full hybrid reranked retrieval pipeline with stage-by-stage waterfall tracing.',
+      'Multi-tenant data partitioning supporting JSON, CSV, TXT, and Markdown chunk ingestion with sub-second index updates.',
+    ],
+    tools: ['Python', 'BM25', 'sentence-transformers', 'all-MiniLM-L6-v2', 'Cross-Encoder', 'FastAPI', 'Streamlit', 'Redis', 'IR Metrics'],
+    deliverables: [
+      'Hybrid Convex α-Fusion Engine',
+      '"Why Ranked #1" Score Inspector',
+      'Automated IR Evaluation Suite (Recall/MRR/nDCG)',
+      'Multi-Tenant Ingestion & Partitioning',
+    ],
+    images: ['/images/searchops.jpg', '/images/searchops-compare.png', '/images/searchops.png'],
+    githubUrl: 'https://github.com/Aayush-pixel29/SearchOps',
+  },
+  {
+    id: 'recon-ai',
+    number: '04',
     title: 'Recon AI',
     category: 'Disaster Response',
     year: '2025',
@@ -145,7 +210,7 @@ export const PROJECTS_DATA: ProjectDetail[] = [
   },
   {
     id: 'indicdoc-vqa',
-    number: '04',
+    number: '05',
     title: 'IndicDoc-VQA',
     category: 'Vision-Language / Edge AI',
     year: '2025',
@@ -197,7 +262,7 @@ export const PROJECTS_DATA: ProjectDetail[] = [
   // =========================================================================
   {
     id: 'skillfoundry',
-    number: '05',
+    number: '06',
     title: 'SkillFoundry',
     category: 'AI Agents',
     year: '2026',
@@ -234,7 +299,7 @@ export const PROJECTS_DATA: ProjectDetail[] = [
   },
   {
     id: 'doc-gen-agent-api',
-    number: '06',
+    number: '07',
     title: 'Doc-Gen Agent API',
     category: 'AI Application',
     year: '2025',
@@ -272,7 +337,7 @@ export const PROJECTS_DATA: ProjectDetail[] = [
   },
   {
     id: 'passion-protocol',
-    number: '07',
+    number: '08',
     title: 'Passion Protocol',
     category: 'Social / Matching',
     year: '2025',
@@ -310,7 +375,7 @@ export const PROJECTS_DATA: ProjectDetail[] = [
   },
   {
     id: 'interview-agent',
-    number: '08',
+    number: '09',
     title: 'Interview Agent',
     category: 'AI Agents',
     year: '2025',
@@ -348,7 +413,7 @@ export const PROJECTS_DATA: ProjectDetail[] = [
   },
   {
     id: 'edge-chest-xray',
-    number: '09',
+    number: '10',
     title: 'Edge Chest X-Ray Triage',
     category: 'Edge AI / Medical',
     year: '2024',
@@ -385,7 +450,7 @@ export const PROJECTS_DATA: ProjectDetail[] = [
   },
   {
     id: 'ai-traffic-analyzer',
-    number: '10',
+    number: '11',
     title: 'AI Traffic Flow Analyzer',
     category: 'Computer Vision',
     year: '2024',

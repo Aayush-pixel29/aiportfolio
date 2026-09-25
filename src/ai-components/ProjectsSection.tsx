@@ -168,13 +168,17 @@ const ProjectCard: React.FC<CardProps> = ({ project, index, totalCards, onSelect
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProject }) => {
   const [activeTab, setActiveTab] = useState<'featured' | 'all' | string>('featured');
 
+  const featuredCount = PROJECTS_DATA.filter((p) => p.tier === 'featured' || p.featured).length;
+  const specializedCount = PROJECTS_DATA.length - featuredCount;
+
   const categories = [
-    { id: 'featured', label: '⭐ Featured (4)' },
-    { id: 'all', label: 'All Systems (10)' },
+    { id: 'featured', label: `⭐ Featured (${featuredCount})` },
+    { id: 'all', label: `All Systems (${PROJECTS_DATA.length})` },
     { id: 'AI Infrastructure', label: 'AI Infrastructure' },
+    { id: 'Search', label: 'Search & IR' },
     { id: 'AI Agents', label: 'AI Agents' },
     { id: 'Vision-Language / Edge AI', label: 'Vision & Edge' },
-    { id: 'Developer Tools', label: 'Developer Tools' },
+    { id: 'Developer Tools', label: 'DevTools & Security' },
   ];
 
   const filteredProjects =
@@ -185,6 +189,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
       : PROJECTS_DATA.filter(
           (p) =>
             p.category.toLowerCase().includes(activeTab.toLowerCase()) ||
+            (activeTab === 'Search' &&
+              (p.category.toLowerCase().includes('search') || p.category.toLowerCase().includes('retrieval'))) ||
+            (activeTab === 'Developer Tools' &&
+              (p.category.toLowerCase().includes('tool') || p.category.toLowerCase().includes('safety') || p.category.toLowerCase().includes('dev'))) ||
             (activeTab === 'Vision-Language / Edge AI' &&
               (p.category.includes('Edge') || p.category.includes('Vision')))
         );
@@ -243,7 +251,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
       </div>
 
       {/* Bottom Switcher CTA if in Featured view */}
-      {activeTab === 'featured' && (
+      {activeTab === 'featured' && specializedCount > 0 && (
         <div className="max-w-6xl mx-auto mt-16 text-center">
           <FadeIn delay={0.2} y={20}>
             <button
@@ -252,7 +260,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/15 text-white text-xs uppercase tracking-widest font-semibold transition-all hover:scale-105 cursor-pointer"
             >
               <Layers className="w-4 h-4 text-cyan-400" />
-              <span>Explore 6 More Specialized Systems in Archive →</span>
+              <span>Explore {specializedCount} More Specialized Systems in Archive →</span>
             </button>
           </FadeIn>
         </div>
