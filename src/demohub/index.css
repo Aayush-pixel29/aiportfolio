@@ -1,0 +1,39 @@
+:root {
+  --font-heading-salon: 'Oswald', sans-serif;
+  --font-heading-clinic: 'Playfair Display', Georgia, serif;
+  --font-heading-crunch: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-salon-display {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.font-clinic-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-clinic-sans {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-crunch {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}

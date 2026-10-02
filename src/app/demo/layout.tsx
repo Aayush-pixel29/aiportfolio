@@ -1,10 +1,11 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { DemoBanner } from '@/demo-components/DemoBanner';
+import { DemoLayoutClient } from '@/demohub/components/common/DemoLayoutClient';
+import '@/demohub/index.css';
 
 export const metadata: Metadata = {
-  title: 'Client Demo Prototypes — Aayush Shelar',
-  description: 'Interactive high-conversion web prototypes for local businesses (Salons, Restaurants, Clinics) built with instant WhatsApp booking flows.',
+  title: 'Client Demo Hub — 3 Production Web Prototypes',
+  description: 'Interactive high-conversion web prototypes for Salon, Restaurant, and Clinic businesses with Indian pricing, local reviews, and WhatsApp booking/order dispatch.',
 };
 
 export default function DemoLayout({
@@ -13,11 +14,14 @@ export default function DemoLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-[#0C0C0C] text-[#D7E2EA] font-['Kanit',sans-serif] selection:bg-[#B600A8]/30 selection:text-white relative">
-      {/* Shared Persistent Demo Prototype Banner */}
-      <DemoBanner />
-
-      <main>{children}</main>
-    </div>
+    <>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      />
+      <DemoLayoutClient>{children}</DemoLayoutClient>
+    </>
   );
 }

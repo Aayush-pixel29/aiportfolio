@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
-import { ClinicView } from './ClinicView';
+import { ClinicApp } from '@/demohub/components/clinic/ClinicApp';
 
 export const metadata: Metadata = {
-  title: 'Apex Dental & Aesthetic Wellness — Doctor Consultation (Demo Prototype)',
-  description: 'Interactive high-conversion dental and aesthetic clinic demo prototype with doctor credential showcase, treatment menus, and direct WhatsApp appointment requests.',
+  title: 'Evermiles Dental Clinic — Modern Dental Care for a Healthier You (Demo Prototype)',
+  description: 'Interactive high-conversion dental clinic website demo with cosmetic dentistry, root canal treatments, AIIMS specialist team, and WhatsApp consultation booking.',
   openGraph: {
-    title: 'Apex Dental & Aesthetic Wellness — Doctor Consultation (Demo Prototype)',
-    description: 'Specialized healthcare clinic prototype featuring doctor profile, transparent procedure fees, and WhatsApp appointment confirmations designed by Aayush Shelar.',
+    title: 'Evermiles Dental Clinic — Modern Dental Care for a Healthier You',
+    description: 'Scandinavian ivory & forest emerald dental practice prototype with transparent consultation fees in INR (₹) and direct WhatsApp triage.',
     type: 'website',
   },
 };
 
 export default function ClinicDemoPage() {
-  return <ClinicView />;
+  return <ClinicApp />;
 }

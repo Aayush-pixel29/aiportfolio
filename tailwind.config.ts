@@ -6,6 +6,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/ai-components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/demo-components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/demohub/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -28,6 +29,10 @@ const config: Config = {
         sans: ["var(--font-inter)", "Inter", "sans-serif"],
         display: ["var(--font-space-grotesk)", "Space Grotesk", "sans-serif"],
         mono: ["var(--font-dm-mono)", "DM Mono", "monospace"],
+        'salon-display': ["'Oswald'", "sans-serif"],
+        'clinic-serif': ["'Playfair Display'", "Georgia", "serif"],
+        'clinic-sans': ["'Plus Jakarta Sans'", "system-ui", "sans-serif"],
+        'crunch': ["'Outfit'", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
       },
     },
   },

@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
-import { SalonView } from './SalonView';
+import { SalonApp } from '@/demohub/components/salon/SalonApp';
 
 export const metadata: Metadata = {
-  title: 'Velvet & Blade Luxe Studio — Hair & Skin Sanctuary (Demo Prototype)',
-  description: 'Interactive high-converting salon and spa booking website demo with instant stylist selection, time slots, and pre-filled WhatsApp confirmation.',
+  title: 'Barbercrop Men — Luxury Barbershop & Grooming Atelier (Demo Prototype)',
+  description: 'Interactive high-converting barbershop website demo with master barber selection, transparent Indian grooming rates (₹), and pre-filled WhatsApp reservation.',
   openGraph: {
-    title: 'Velvet & Blade Luxe Studio — Hair & Skin Sanctuary (Demo Prototype)',
-    description: 'Bespoke salon prototype featuring transparent service menus, stylist selection, and instant WhatsApp booking flow built by Aayush Shelar.',
+    title: 'Barbercrop Men — Luxury Barbershop & Grooming Atelier',
+    description: 'High-contrast noir barbershop prototype inspired by international luxury grooming studios, featuring master barber booking and WhatsApp dispatch.',
     type: 'website',
   },
 };
 
 export default function SalonDemoPage() {
-  return <SalonView />;
+  return <SalonApp />;
 }

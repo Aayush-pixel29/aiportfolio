@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
-import { RestaurantView } from './RestaurantView';
+import { RestaurantApp } from '@/demohub/components/restaurant/RestaurantApp';
 
 export const metadata: Metadata = {
-  title: 'Oakhaven Hearth & Kitchen — Woodfired Bistro & Plates (Demo Prototype)',
-  description: 'Interactive high-conversion restaurant website demo featuring dynamic menu categories, veg/non-veg indicators, live cart, and direct WhatsApp order dispatch.',
+  title: 'Crunch Fried Chicken & Burgers — Fast Casual Delivery (Demo Prototype)',
+  description: 'Interactive high-conversion restaurant app demo with crispy chicken buckets, spicy crunch burgers, INR pricing (₹), live order tracking, and WhatsApp checkout.',
   openGraph: {
-    title: 'Oakhaven Hearth & Kitchen — Woodfired Bistro & Plates (Demo Prototype)',
-    description: 'Modern restaurant website prototype with real-time cart calculations and instant WhatsApp ordering created by Aayush Shelar.',
+    title: 'Crunch Fried Chicken & Burgers — Fast Casual Delivery',
+    description: 'Energetic charcoal & orange fast-casual digital restaurant with interactive cart drawer, 25% discount vouchers, and live delivery status.',
     type: 'website',
   },
 };
 
 export default function RestaurantDemoPage() {
-  return <RestaurantView />;
+  return <RestaurantApp />;
 }
